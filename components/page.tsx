@@ -46,7 +46,7 @@ export function Page() {
     <div className="min-h-screen bg-gray-50 text-gray-900">
       <header className="bg-white shadow-md">
         <div className="container mx-auto px-4 py-6 flex justify-between items-center">
-          <img src="/a/ba922181-aa60-4243-92d0-92a9955ad94c" alt="ANFAIA Logo" className="w-40 h-auto" />
+          <img src="ANFAIA_logo_web.png" alt="ANFAIA Logo" className="w-40 h-auto" />
           <nav>
             <ul className="flex space-x-6">
               {['Inicio', 'Áreas', 'Programa', 'Ética'].map((item) => (
@@ -157,8 +157,9 @@ export function Page() {
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap justify-between">
             <div className="w-full md:w-1/3 mb-8 md:mb-0">
-              <img src="/a/ba922181-aa60-4243-92d0-92a9955ad94c" alt="ANFAIA Logo" className="w-32 h-auto mb-4" />
-              <p className="text-gray-400">Asociación Nacional para el Fomento de la IA</p>
+              <img src="ANFAIA_logo_square.jpg" alt="ANFAIA Logo" className="w-32 h-auto mb-4" />
+              <p className="text-gray-400">Asociación Nacional Faro, para la
+              Aceleración de la Inteligencia Artificial</p>
             </div>
             <div className="w-full md:w-1/3 mb-8 md:mb-0">
               <h3 className="text-lg font-semibold mb-4">Enlaces Rápidos</h3>

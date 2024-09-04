@@ -85,12 +85,12 @@ export function Page() {
           <h2 className="text-3xl font-bold mb-12 text-center">Nuestras Áreas de Acción</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { title: 'Cultura', image: 'culture-technology', description: 'Preservamos el patrimonio cultural y fomentamos el intercambio global.' },
-              { title: 'Arte', image: 'ai-art', description: 'Potenciamos la creatividad artística con herramientas de IA innovadoras.' },
-              { title: 'Salud', image: 'ai-healthcare', description: 'Mejoramos diagnósticos y tratamientos con sistemas de IA avanzados.' },
-              { title: 'Robótica', image: 'robotics-ai', description: 'Integramos IA en sistemas robóticos para desafíos complejos.' },
-              { title: 'Sostenibilidad', image: 'ai-sustainability', description: 'Combatimos el cambio climático con soluciones basadas en IA.' },
-              { title: 'Ética', image: 'ai-ethics', description: 'Promovemos el desarrollo y uso responsable de la IA.' },
+              { title: 'Cultura', image: 'culture-technology', description: '' },
+              { title: 'Arte', image: 'ai-art', description: '' },
+              { title: 'Salud', image: 'ai-healthcare', description: '' },
+              { title: 'Robótica', image: 'robotics-ai', description: '' },
+              { title: 'Sostenibilidad', image: 'ai-sustainability', description: '' },
+              { title: 'Ética', image: 'ai-ethics', description: '' },
             ].map((area, index) => (
               <motion.div
                 key={index}
@@ -129,7 +129,7 @@ export function Page() {
             <ul className="space-y-4 mb-6">
               {[
                 'Promover la transparencia en los algoritmos de IA',
-                'Garantizar la privacidad y la protección de datos personales',
+                'Generar y trabajar con fuentes de datos abiertas',
                 'Fomentar la equidad y evitar sesgos discriminatorios',
                 'Considerar el impacto social y ambiental de nuestras tecnologías',
                 'Educar sobre el uso responsable de la IA',

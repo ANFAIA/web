@@ -34,7 +34,7 @@ export function Page() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (email) {
-      alert(`Gracias por tu interés. Te mantendremos informado en ${email} sobre nuestro programa de pasantías.`)
+      alert(`Gracias por tu interés. Te mantendremos informado en ${email} sobre nuestro programa de Becas.`)
       setIsModalOpen(false)
       setEmail('')
     } else {
@@ -115,8 +115,8 @@ export function Page() {
         <section id="programa" className="mb-24">
           <Card className="bg-blue-50">
             <CardContent className="text-center py-16">
-              <h2 className="text-3xl font-bold mb-6">Programa de Pasantías ANFAIA</h2>
-              <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">Únete a nuestro programa de pasantías en IA. Trabaja en proyectos de vanguardia y aprende de los mejores expertos en el campo.</p>
+              <h2 className="text-3xl font-bold mb-6">Programa de Becas ANFAIA</h2>
+              <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">Únete a nuestro programa de Becas en IA. Trabaja en proyectos de vanguardia y aprende de los mejores expertos en el campo.</p>
               <Button size="lg" onClick={() => setIsModalOpen(true)}>Postúlate Ahora</Button>
             </CardContent>
           </Card>
@@ -186,7 +186,7 @@ export function Page() {
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
-            <DialogTitle>Únete a Nuestro Programa de Pasantías</DialogTitle>
+            <DialogTitle>Únete a Nuestro Programa de Becas</DialogTitle>
             <DialogDescription>
               Déjanos tu correo electrónico y te mantendremos informado sobre las fechas de apertura y los requisitos del programa.
             </DialogDescription>

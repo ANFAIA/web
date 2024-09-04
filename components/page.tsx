@@ -99,7 +99,7 @@ export function Page() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <Card className="overflow-hidden h-full transition-all duration-300 hover:shadow-lg">
-                  <img src={`https://source.unsplash.com/random/400x300/?${area.image}`} alt={area.title} className="w-full h-48 object-cover" />
+                  <img src={`${area.image}`} alt={area.title} className="w-full h-48 object-cover" />
                   <CardHeader>
                     <CardTitle>{area.title}</CardTitle>
                   </CardHeader>

@@ -85,12 +85,12 @@ export function Page() {
           <h2 className="text-3xl font-bold mb-12 text-center">Nuestras Áreas de Acción</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { title: 'Cultura', image: 'culture-technology', description: '' },
-              { title: 'Arte', image: 'ai-art', description: '' },
-              { title: 'Salud', image: 'ai-healthcare', description: '' },
-              { title: 'Robótica', image: 'robotics-ai', description: '' },
-              { title: 'Sostenibilidad', image: 'ai-sustainability', description: '' },
-              { title: 'Ética', image: 'ai-ethics', description: '' },
+              { title: 'Cultura', image: 'culture.webp', description: '' },
+              { title: 'Arte', image: 'art.webp', description: '' },
+              { title: 'Salud', image: 'health.webp', description: '' },
+              { title: 'Robótica', image: 'robotic.webp', description: '' },
+              { title: 'Sostenibilidad', image: 'sustainability.webp', description: '' },
+              { title: 'Ética', image: 'ethic.webp', description: '' },
             ].map((area, index) => (
               <motion.div
                 key={index}

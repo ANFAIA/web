@@ -73,7 +73,7 @@ export function Page() {
             className="text-center"
           >
             <h1 className="text-5xl font-bold mb-6">Impulsando el Progreso con Inteligencia Artificial</h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12">ANFAIA lidera proyectos innovadores en cultura, arte, salud, robótica y sostenibilidad ambiental, aprovechando el poder de la IA para crear un futuro mejor y ético.</p>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12">ANFAIA lidera proyectos innovadores en cultura, arte, salud, robótica y sostenibilidad ambiental. Utilizando la IA para crear un futuro mejor y ético.</p>
             <Button size="lg" onClick={() => document.getElementById('areas')?.scrollIntoView({ behavior: 'smooth' })}>
               Explora Nuestras Áreas
               <ChevronDown className="ml-2 h-4 w-4" />
@@ -85,12 +85,12 @@ export function Page() {
           <h2 className="text-3xl font-bold mb-12 text-center">Nuestras Áreas de Acción</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { title: 'Cultura', image: 'culture.webp', description: '' },
-              { title: 'Arte', image: 'art.webp', description: '' },
-              { title: 'Salud', image: 'health.webp', description: '' },
-              { title: 'Robótica', image: 'robotic.webp', description: '' },
-              { title: 'Sostenibilidad', image: 'sustainability.webp', description: '' },
-              { title: 'Ética', image: 'ethic.webp', description: '' },
+              { title: 'Cultura', image: 'culture.webp', description: `Creemos que la inteligencia artificial tiene el potencial de revolucionar la forma en que creamos, compartimos y experimentamos la cultura` },
+              { title: 'Arte', image: 'art.webp', description: 'La intersección entre el arte y la inteligencia artificial ofrece un vasto campo de exploración creativa' },
+              { title: 'Salud', image: 'health.webp', description: 'La aplicación de la IA en el campo de la salud tiene el potencial de salvar vidas y mejorar la calidad de vida de millones de personas' },
+              { title: 'Robótica', image: 'robotic.webp', description: 'La combinación de IA y robótica abre un mundo de posibilidades para automatizar tareas y crear sistemas inteligentes' },
+              { title: 'Sostenibilidad', image: 'sustainability.webp', description: 'La IA juega un papel crucial en la lucha contra el cambio climático y la promoción de un futuro sostenible' },
+              { title: 'Ética', image: 'ethic.webp', description: 'Reconocemos la importancia de abordar las implicaciones éticas del desarrollo y uso de la IA' },
             ].map((area, index) => (
               <motion.div
                 key={index}
@@ -158,8 +158,8 @@ export function Page() {
           <div className="flex flex-wrap justify-between">
             <div className="w-full md:w-1/3 mb-8 md:mb-0">
               <img src="ANFAIA_logo_square.jpg" alt="ANFAIA Logo" className="w-32 h-auto mb-4" />
-              <p className="text-gray-400">Asociación Nacional Faro, para la
-              Aceleración de la Inteligencia Artificial</p>
+              <p className="text-gray-400"><p>Asociación Nacional Faro, para la</p> 
+              <p>Aceleración de la Inteligencia Artificial</p></p>
             </div>
             <div className="w-full md:w-1/3 mb-8 md:mb-0">
               <h3 className="text-lg font-semibold mb-4">Enlaces Rápidos</h3>
@@ -174,7 +174,7 @@ export function Page() {
             <div className="w-full md:w-1/3">
               <h3 className="text-lg font-semibold mb-4">Contacto</h3>
               <p className="text-gray-400 mb-2">info@anfaia.org</p>
-              <p className="text-gray-400">+34 123 456 789</p>
+              <p className="text-gray-400"></p>
             </div>
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center">

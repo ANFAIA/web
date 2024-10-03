@@ -117,7 +117,7 @@ export function Page() {
             <CardContent className="text-center py-16">
               <h2 className="text-3xl font-bold mb-6">Programa de Becas ANFAIA</h2>
               <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">Únete a nuestro programa de Becas en IA. Trabaja en proyectos de vanguardia y aprende de los mejores expertos en el campo.</p>
-              
+              <Button size="lg" onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLSc_FhEvUd7sP_gYcO4dbyW7By7Hw6SFzwg7oH6BIM0rkxcRvg/viewform?usp=sf_link', '_blank')}>Postúlate Ahora</Button>
             </CardContent>
           </Card>
         </section>

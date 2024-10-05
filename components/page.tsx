@@ -179,6 +179,16 @@ export function Page() {
                     Aviso Legal
                   </a>
                 </li>
+                <li>
+                  <a 
+                    href="https://docs.google.com/document/d/e/2PACX-1vSFn9FHOtk83no0OTTN09rF9iHWIEJBqvdKToBenau6sPezSZqo9DDgzw8twhTZuxPM2Rt8-i9emJZo/pub" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-gray-400 hover:text-white transition-colors duration-200"
+                  >
+                    Política de Privacidad
+                  </a>
+                </li>
               </ul>
             </div>
             <div className="w-full md:w-1/3">

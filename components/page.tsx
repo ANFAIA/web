@@ -169,6 +169,16 @@ export function Page() {
                     <a href={`#${item.toLowerCase()}`} className="text-gray-400 hover:text-white transition-colors duration-200">{item}</a>
                   </li>
                 ))}
+                <li>
+                  <a 
+                    href="https://docs.google.com/document/d/1nsJ_z4UMTGoaTAVvImf09EmvgfUVbCc6pGS3QvABDw8/edit" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-gray-400 hover:text-white transition-colors duration-200"
+                  >
+                    Aviso Legal
+                  </a>
+                </li>
               </ul>
             </div>
             <div className="w-full md:w-1/3">

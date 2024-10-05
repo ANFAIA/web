@@ -171,7 +171,7 @@ export function Page() {
                 ))}
                 <li>
                   <a 
-                    href="https://docs.google.com/document/d/1nsJ_z4UMTGoaTAVvImf09EmvgfUVbCc6pGS3QvABDw8/edit" 
+                    href="https://docs.google.com/document/d/e/2PACX-1vSYW5wIThnu-WR2ji_cdaMuWhxbqopbHdZwhLyiKC2WV77owIJqqvzPl691etyZ_l3hc098v17xuSHo/pub" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="text-gray-400 hover:text-white transition-colors duration-200"

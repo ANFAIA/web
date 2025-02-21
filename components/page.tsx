@@ -13,9 +13,18 @@ export function Page() {
   const [email, setEmail] = useState('')
   const [activeSection, setActiveSection] = useState('')
 
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const becasLinks = [
+    { name: 'Formulario Becas', href: 'https://docs.google.com/forms/d/e/1FAIpQLScJZB6TQfseCBkrQH0DCiUGcJbRnurHtPXyoJkYm7Bm2TsDtw/viewform?usp=header' },
+    { name: 'Convocatoria 2025', href: 'https://docs.google.com/document/d/e/2PACX-1vSuT7Mb9YqG9bywfEwXlF1uznTJfb5EwGj-dJv3DI1aYao-ffYHUDRln3wntacOcRDnI7dGnOpX8y0o/pub' },
+    { name: 'Bases Generales', href: 'https://docs.google.com/document/d/e/2PACX-1vTTYdJO1w3Nzb4tP7lbkhs1UecyrDNPIZhJ9wKc4WYlrXDv4lGE2uZYtugKYDC6S9uQeh4tHF06_ZEf/pub' }
+  ];
+
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['inicio', 'areas', 'programa', 'etica']
+
       const currentSection = sections.find(section => {
         const element = document.getElementById(section)
         if (element) {
@@ -59,6 +68,47 @@ export function Page() {
                   </a>
                 </li>
               ))}
+
+            {/* Becas Dropdown */}
+            <li className="relative">
+                <button
+                  className="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors duration-200 flex items-center"
+                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                  onBlur={() => setTimeout(() => setIsDropdownOpen(false), 200)}
+                >
+                  Becas
+                  <svg
+                    className={`ml-1 h-4 w-4 transition-transform duration-200 ${
+                      isDropdownOpen ? 'rotate-180' : ''
+                    }`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+
+                {isDropdownOpen && (
+                  <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10">
+                    {becasLinks.map((link) => (
+                      <a
+                        key={link.name}
+                        href={link.href}
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-blue-600"
+                      >
+                        {link.name}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </li>
+
             </ul>
           </nav>
         </div>
@@ -115,9 +165,13 @@ export function Page() {
         <section id="programa" className="mb-24">
           <Card className="bg-blue-50">
             <CardContent className="text-center py-16">
-              <h2 className="text-3xl font-bold mb-6">Programa de Becas ANFAIA</h2>
-              <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">Únete a nuestro programa de Becas en IA. Trabaja en proyectos de vanguardia y aprende de los mejores expertos en el campo.</p>
-              <Button size="lg" onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLSc_FhEvUd7sP_gYcO4dbyW7By7Hw6SFzwg7oH6BIM0rkxcRvg/viewform?usp=sf_link', '_blank')}>Postúlate Ahora</Button>
+              <h2 className="text-3xl font-bold mb-6">Apertura de Convocatoria: Becas de Verano ANFAIA 2025</h2>
+              <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">Abierto el plazo para aplicar a las Becas de Verano ANFAIA 2025. 
+                Este programa ofrece la oportunidad de trabajar en proyectos innovadores de inteligencia artificial, guiados por expertos en el campo. 
+                Los participantes contribuirán al desarrollo de tecnología de vanguardia y al ecosistema open source.</p>
+              <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto"> Fecha límite de postulación 31 de marzo de 2025.</p>
+
+              <Button size="lg" onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLScJZB6TQfseCBkrQH0DCiUGcJbRnurHtPXyoJkYm7Bm2TsDtw/viewform?usp=header', '_blank')}>Aplica Ahora</Button>
             </CardContent>
           </Card>
         </section>
@@ -169,6 +223,7 @@ export function Page() {
                     <a href={`#${item.toLowerCase()}`} className="text-gray-400 hover:text-white transition-colors duration-200">{item}</a>
                   </li>
                 ))}
+               
                 <li>
                   <a 
                     href="https://docs.google.com/document/d/e/2PACX-1vSYW5wIThnu-WR2ji_cdaMuWhxbqopbHdZwhLyiKC2WV77owIJqqvzPl691etyZ_l3hc098v17xuSHo/pub" 

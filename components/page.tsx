@@ -100,6 +100,7 @@ export function Page() {
                       <a
                         key={link.name}
                         href={link.href}
+                        target="_blank" 
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-blue-600"
                       >
                         {link.name}

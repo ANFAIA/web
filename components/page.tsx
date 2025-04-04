@@ -16,7 +16,6 @@ export function Page() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const becasLinks = [
-    { name: 'Formulario Becas', href: 'https://docs.google.com/forms/d/e/1FAIpQLScJZB6TQfseCBkrQH0DCiUGcJbRnurHtPXyoJkYm7Bm2TsDtw/viewform?usp=header' },
     { name: 'Convocatoria 2025', href: 'https://docs.google.com/document/d/e/2PACX-1vSuT7Mb9YqG9bywfEwXlF1uznTJfb5EwGj-dJv3DI1aYao-ffYHUDRln3wntacOcRDnI7dGnOpX8y0o/pub' },
     { name: 'Bases Generales', href: 'https://docs.google.com/document/d/e/2PACX-1vTTYdJO1w3Nzb4tP7lbkhs1UecyrDNPIZhJ9wKc4WYlrXDv4lGE2uZYtugKYDC6S9uQeh4tHF06_ZEf/pub' }
   ];
@@ -166,13 +165,14 @@ export function Page() {
         <section id="programa" className="mb-24">
           <Card className="bg-blue-50">
             <CardContent className="text-center py-16">
-              <h2 className="text-3xl font-bold mb-6">Apertura de Convocatoria: Becas de Verano ANFAIA 2025</h2>
-              <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">Abierto el plazo para aplicar a las Becas de Verano ANFAIA 2025. 
-                Este programa ofrece la oportunidad de trabajar en proyectos innovadores de inteligencia artificial, guiados por expertos en el campo. 
-                Los participantes contribuirán al desarrollo de tecnología de vanguardia y al ecosistema open source.</p>
-              <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto"> Fecha límite de postulación 31 de marzo de 2025.</p>
+              <h2 className="text-3xl font-bold mb-6">Becas de Verano ANFAIA 2025</h2>
+              <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">El plazo de inscripción para las Becas de Verano ANFAIA 2025 ha cerrado oficialmente el 31 de marzo de 2025.
+                 Ahora, los seleccionados participarán en este programa durante el verano, 
+                trabajando en proyectos innovadores de inteligencia artificial, contribuyendo al desarrollo de tecnología de vanguardia y al ecosistema open source.</p>
+              <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto"> ¿Quieres recibir información sobre nuestras actividades?
+              Déjanos tus datos para mantenerte al tanto de lo que sucede:</p>
 
-              <Button size="lg" onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLScJZB6TQfseCBkrQH0DCiUGcJbRnurHtPXyoJkYm7Bm2TsDtw/viewform?usp=header', '_blank')}>Aplica Ahora</Button>
+              <Button size="lg" onClick={() => window.open('https://forms.gle/5BxnQgzP6EwbzY2t9', '_blank')}>Únete a nuestra lista</Button>
             </CardContent>
           </Card>
         </section>

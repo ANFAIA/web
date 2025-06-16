@@ -138,7 +138,7 @@ export function Page() {
               { title: 'Cultura', image: 'culture.webp', description: `Creemos que la inteligencia artificial tiene el potencial de revolucionar la forma en que creamos, compartimos y experimentamos la cultura` },
               { title: 'Arte', image: 'art.webp', description: 'La intersección entre el arte y la inteligencia artificial ofrece un vasto campo de exploración creativa' },
               { title: 'Salud', image: 'health.webp', description: 'La aplicación de la IA en el campo de la salud tiene el potencial de salvar vidas y mejorar la calidad de vida de millones de personas' },
-              { title: 'Robótica', image: 'robotic.webp', description: 'La combinación de IA y robótica abre un mundo de posibilidades para automatizar tareas y crear sistemas inteligentes' },
+              { title: 'Robótica/Automatización', image: 'robotic.webp', description: 'La combinación de IA y robótica abre un mundo de posibilidades para automatizar tareas y crear sistemas inteligentes' },
               { title: 'Sostenibilidad', image: 'sustainability.webp', description: 'La IA juega un papel crucial en la lucha contra el cambio climático y la promoción de un futuro sostenible' },
               { title: 'Ética', image: 'ethic.webp', description: 'Reconocemos la importancia de abordar las implicaciones éticas del desarrollo y uso de la IA' },
             ].map((area, index) => (

@@ -5,7 +5,7 @@ Aceleración de la Inteligencia Artificial (ANFAIA).
 
 ## Description
 
-ANFAIA is a non-profit organization dedicated to driving progress with Artificial Intelligence across multiple areas: culture, art, health, robotics, and environmental sustainability. This website showcases the association's initiatives, including the ANFAIA Summer Scholarship program.
+ANFAIA is a non-profit organization dedicated to driving progress with Artificial Intelligence across multiple areas: culture, art, health, automatization, robotics, and environmental sustainability. This website showcases the association's initiatives.
 
 ## Technologies Used
 
@@ -111,7 +111,7 @@ To contribute to the project:
 ## Contact
 
 - **Email**: info@anfaia.org
-- **Website**: [Website link]
+- **Website**: [anfaia.org](http://anfaia.org)
 
 ## License
 

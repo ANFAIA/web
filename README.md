@@ -113,6 +113,17 @@ To contribute to the project:
 - **Email**: info@anfaia.org
 - **Website**: [anfaia.org](http://anfaia.org)
 
+## AI Code Assistant Integration
+
+This project includes a `CODEAI.md` file that provides comprehensive guidance for AI code assistants. If you're using AI-powered development tools like Claude Code, GitHub Copilot, Cursor AI, or similar tools, refer to `CODEAI.md` for:
+
+- Project architecture and patterns
+- Development workflows and commands  
+- Component conventions and styling guidelines
+- ANFAIA-specific context and requirements
+
+The `CODEAI.md` file helps AI assistants understand the codebase structure and maintain consistency when making changes or additions.
+
 ## License
 
 This project is under the terms specified in the LICENSE file.

@@ -1,6 +1,12 @@
 # CODEAI.md
 
-This file provides guidance to different CODE AI Assistant such as Claude Code (claude.ai/code), Gemini CLI (https://github.com/google-gemini/gemini-cli) or Open Code (https://github.com/sst/opencode), to work with code in this repository.
+This file provides guidance to AI code assistants when working with this repository. Compatible with various AI coding tools including:
+- Claude Code (claude.ai/code)
+- Gemini CLI
+- GitHub Copilot
+- Cursor AI
+- Codeium
+- Other AI-powered development tools
 
 ## Common Development Commands
 
@@ -13,9 +19,10 @@ npm run start       # Start production server
 npm run lint        # Run ESLint checks
 ```
 
-### Current Limitations
-- **No testing framework**: Add `npm test` when tests are implemented
-- **No type checking script**: Consider adding `npm run type-check` with `tsc --noEmit`
+### Missing Development Scripts
+- **No testing framework**: No `npm test` available - consider adding Jest, Vitest, or Playwright
+- **No type checking script**: No standalone TypeScript checking - consider adding `npm run type-check`
+- **No format script**: No Prettier configured - consider adding code formatting
 
 ## Architecture Overview
 
@@ -38,6 +45,14 @@ Based on **shadcn/ui** with these key patterns:
 - **Tailwind CSS**: Primary styling with custom design tokens in `app/globals.css`
 - **CSS Custom Properties**: Comprehensive theming system with light/dark mode support
 - **Design System**: Consistent spacing, colors, and components following modern design patterns
+
+## Code Patterns & Conventions
+
+### File Naming Conventions
+- **React components**: PascalCase with `.tsx` extension
+- **Utilities**: camelCase with `.ts` extension
+- **Styles**: kebab-case for CSS files
+- **Static assets**: descriptive names with proper extensions
 
 ## Development Patterns
 
@@ -116,6 +131,32 @@ ANFAIA (Asociación Nacional Faro, para la Aceleración de la Inteligencia Artif
 - **Google Docs**: Official document hosting
 - **Static hosting**: Designed for platforms like Vercel
 
+## AI Assistant Guidelines
+
+### When Working with Components
+- Follow the shadcn/ui pattern for new UI components
+- Use `class-variance-authority` for component variants
+- Maintain forward ref pattern for proper composition
+- Keep UI components in `/components/ui/` directory
+
+### When Modifying Styles
+- Use Tailwind utility classes over custom CSS
+- Add new design tokens to `app/globals.css` CSS custom properties
+- Maintain the existing color scheme and spacing system
+- Test both light and dark mode variations
+
+### When Adding Features
+- Consider if functionality belongs in the main `/components/page.tsx` or needs extraction
+- Use React hooks for local state management
+- Implement smooth animations with Framer Motion
+- Ensure mobile-responsive design
+
+### Content Guidelines
+- Maintain Spanish language for primary content
+- Update external links if documents change
+- Optimize images to WebP format for performance
+- Follow ANFAIA's focus areas and ethical guidelines
+
 ## Development Notes
 
 - **No environment variables**: Currently no .env configuration needed
@@ -123,3 +164,5 @@ ANFAIA (Asociación Nacional Faro, para la Aceleración de la Inteligencia Artif
 - **No authentication**: Public informational website
 - **Mobile-first**: Responsive design with Tailwind breakpoints
 - **Performance**: Uses WebP images and Framer Motion for smooth animations
+- **Static hosting**: Optimized for Vercel deployment
+- **SEO**: Basic meta tags configured in layout.tsx

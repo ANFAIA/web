@@ -180,7 +180,7 @@ export const translations: Record<Language, Translations> = {
       description: 'ANFAIA leads innovative projects in culture, art, health, robotics, and environmental sustainability. Using AI to create a better and ethical future.'
     },
     areas: {
-      title: 'Our Areas of Action',
+      title: 'Focus Areas',
       cultura: {
         title: 'Culture',
         description: 'We believe that artificial intelligence has the potential to revolutionize the way we create, share, and experience culture'

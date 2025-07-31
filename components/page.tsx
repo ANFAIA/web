@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog"
 import { motion } from 'framer-motion'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, Github, Youtube } from 'lucide-react'
 
 export function Page() {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -22,7 +22,7 @@ export function Page() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['inicio', 'areas', 'programa', 'etica']
+      const sections = ['inicio', 'programa', 'ética']
 
       const currentSection = sections.find(section => {
         const element = document.getElementById(section)
@@ -57,7 +57,7 @@ export function Page() {
           <img src="ANFAIA_logo_web.png" alt="ANFAIA Logo" className="w-40 h-auto" />
           <nav>
             <ul className="flex space-x-6">
-              {['Inicio', 'Áreas', 'Programa', 'Ética'].map((item) => (
+              {['Inicio', 'Programa', 'Ética'].map((item) => (
                 <li key={item}>
                   <a 
                     href={`#${item.toLowerCase()}`} 
@@ -124,10 +124,6 @@ export function Page() {
           >
             <h1 className="text-5xl font-bold mb-6">Impulsando el Progreso con Inteligencia Artificial</h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12">ANFAIA lidera proyectos innovadores en cultura, arte, salud, robótica y sostenibilidad ambiental. Utilizando la IA para crear un futuro mejor y ético.</p>
-            <Button size="lg" onClick={() => document.getElementById('areas')?.scrollIntoView({ behavior: 'smooth' })}>
-              Explora Nuestras Áreas
-              <ChevronDown className="ml-2 h-4 w-4" />
-            </Button>
           </motion.div>
         </section>
 
@@ -138,7 +134,7 @@ export function Page() {
               { title: 'Cultura', image: 'culture.webp', description: `Creemos que la inteligencia artificial tiene el potencial de revolucionar la forma en que creamos, compartimos y experimentamos la cultura` },
               { title: 'Arte', image: 'art.webp', description: 'La intersección entre el arte y la inteligencia artificial ofrece un vasto campo de exploración creativa' },
               { title: 'Salud', image: 'health.webp', description: 'La aplicación de la IA en el campo de la salud tiene el potencial de salvar vidas y mejorar la calidad de vida de millones de personas' },
-              { title: 'Robótica/Automatización', image: 'robotic.webp', description: 'La combinación de IA y robótica abre un mundo de posibilidades para automatizar tareas y crear sistemas inteligentes' },
+              { title: 'Robótica/Automatización', image: 'robotic.webp', description: 'La combinación de IA con automatizacion y robótica abre un mundo de posibilidades para automatizar tareas y crear sistemas inteligentes' },
               { title: 'Sostenibilidad', image: 'sustainability.webp', description: 'La IA juega un papel crucial en la lucha contra el cambio climático y la promoción de un futuro sostenible' },
               { title: 'Ética', image: 'ethic.webp', description: 'Reconocemos la importancia de abordar las implicaciones éticas del desarrollo y uso de la IA' },
             ].map((area, index) => (
@@ -169,15 +165,52 @@ export function Page() {
               <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">El plazo de inscripción para las Becas de Verano ANFAIA 2025 ha cerrado oficialmente el 31 de marzo de 2025.
                  Ahora, los seleccionados participarán en este programa durante el verano, 
                 trabajando en proyectos innovadores de inteligencia artificial, contribuyendo al desarrollo de tecnología de vanguardia y al ecosistema open source.</p>
-              <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto"> ¿Quieres recibir información sobre nuestras actividades?
-              Déjanos tus datos para mantenerte al tanto de lo que sucede:</p>
+              
+              <p className="text-lg text-gray-600 mb-6 max-w-2xl mx-auto">
+                Explora nuestros proyectos de código abierto y contribuye al desarrollo de IA ética:
+              </p>
 
-              <Button size="lg" onClick={() => window.open('https://forms.gle/5BxnQgzP6EwbzY2t9', '_blank')}>Únete a nuestra lista</Button>
+              <Button size="lg" onClick={() => window.open('https://github.com/anfaia', '_blank')} className="mb-8">
+                <Github className="mr-2 h-5 w-5" />
+                Ver Proyectos en GitHub
+              </Button>
             </CardContent>
           </Card>
         </section>
 
-        <section id="etica" className="mb-24">
+        <section className="mb-24">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <Card className="bg-red-50">
+              <CardContent className="text-center py-16">
+                <h2 className="text-3xl font-bold mb-6">Conferencias de Verano</h2>
+                <p className="text-xl text-gray-600 mb-8">
+                  Visita nuestro canal de YouTube para explorar las conferencias de verano y contenido educativo sobre IA:
+                </p>
+
+                <Button size="lg" onClick={() => window.open('https://www.youtube.com/@Anfaia', '_blank')}>
+                  <Youtube className="mr-2 h-5 w-5" />
+                  Ver Canal de YouTube
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-green-50">
+              <CardContent className="text-center py-16">
+                <h2 className="text-3xl font-bold mb-6">Mantente Informado</h2>
+                <p className="text-xl text-gray-600 mb-8">
+                  ¿Quieres recibir información sobre nuestras actividades?
+                  Déjanos tus datos para mantenerte al tanto de lo que sucede:
+                </p>
+
+                <Button size="lg" onClick={() => window.open('https://forms.gle/5BxnQgzP6EwbzY2t9', '_blank')}>
+                  Únete a nuestra lista
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
+        <section id="ética" className="mb-24">
           <h2 className="text-3xl font-bold mb-8 text-center">Nuestro Compromiso Ético</h2>
           <div className="max-w-3xl mx-auto">
             <p className="text-lg text-gray-600 mb-6">En ANFAIA, creemos firmemente que el desarrollo y la implementación de la Inteligencia Artificial deben estar guiados por sólidos principios éticos. Nos comprometemos a:</p>
@@ -213,13 +246,15 @@ export function Page() {
           <div className="flex flex-wrap justify-between">
             <div className="w-full md:w-1/3 mb-8 md:mb-0">
               <img src="ANFAIA_logo_square.jpg" alt="ANFAIA Logo" className="w-32 h-auto mb-4" />
-              <p className="text-gray-400"><p>Asociación Nacional Faro, para la</p> 
-              <p>Aceleración de la Inteligencia Artificial</p></p>
+              <div className="text-gray-400">
+                <p>Asociación Nacional Faro, para la</p>
+                <p>Aceleración de la Inteligencia Artificial</p>
+              </div>
             </div>
             <div className="w-full md:w-1/3 mb-8 md:mb-0">
               <h3 className="text-lg font-semibold mb-4">Enlaces Rápidos</h3>
               <ul className="space-y-2">
-                {['Inicio', 'Áreas', 'Programa', 'Ética'].map((item) => (
+                {['Inicio', 'Programa', 'Ética'].map((item) => (
                   <li key={item}>
                     <a href={`#${item.toLowerCase()}`} className="text-gray-400 hover:text-white transition-colors duration-200">{item}</a>
                   </li>

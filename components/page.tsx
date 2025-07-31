@@ -6,9 +6,12 @@ import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog"
 import { motion } from 'framer-motion'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, Github, Youtube } from 'lucide-react'
+import { useTranslations } from '@/lib/translations'
+import { LanguageSwitcher } from '@/components/ui/language-switcher'
 
 export function Page() {
+  const { t, language } = useTranslations()
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [email, setEmail] = useState('')
   const [activeSection, setActiveSection] = useState('')
@@ -16,13 +19,13 @@ export function Page() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const becasLinks = [
-    { name: 'Convocatoria 2025', href: 'https://docs.google.com/document/d/e/2PACX-1vSuT7Mb9YqG9bywfEwXlF1uznTJfb5EwGj-dJv3DI1aYao-ffYHUDRln3wntacOcRDnI7dGnOpX8y0o/pub' },
-    { name: 'Bases Generales', href: 'https://docs.google.com/document/d/e/2PACX-1vTTYdJO1w3Nzb4tP7lbkhs1UecyrDNPIZhJ9wKc4WYlrXDv4lGE2uZYtugKYDC6S9uQeh4tHF06_ZEf/pub' }
+    { name: t.nav.convocatoria2025, href: 'https://docs.google.com/document/d/e/2PACX-1vSuT7Mb9YqG9bywfEwXlF1uznTJfb5EwGj-dJv3DI1aYao-ffYHUDRln3wntacOcRDnI7dGnOpX8y0o/pub' },
+    { name: t.nav.basesGenerales, href: 'https://docs.google.com/document/d/e/2PACX-1vTTYdJO1w3Nzb4tP7lbkhs1UecyrDNPIZhJ9wKc4WYlrXDv4lGE2uZYtugKYDC6S9uQeh4tHF06_ZEf/pub' }
   ];
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['inicio', 'areas', 'programa', 'etica']
+      const sections = ['inicio', 'programa', 'ética']
 
       const currentSection = sections.find(section => {
         const element = document.getElementById(section)
@@ -55,15 +58,20 @@ export function Page() {
       <header className="bg-white shadow-md">
         <div className="container mx-auto px-4 py-6 flex justify-between items-center">
           <img src="ANFAIA_logo_web.png" alt="ANFAIA Logo" className="w-40 h-auto" />
-          <nav>
+          <div className="flex items-center space-x-4">
+            <nav>
             <ul className="flex space-x-6">
-              {['Inicio', 'Áreas', 'Programa', 'Ética'].map((item) => (
-                <li key={item}>
+              {[
+                { key: 'inicio', label: t.nav.inicio },
+                { key: 'programa', label: t.nav.programa },
+                { key: 'ética', label: t.nav.etica }
+              ].map((item) => (
+                <li key={item.key}>
                   <a 
-                    href={`#${item.toLowerCase()}`} 
-                    className={`text-sm font-medium transition-colors duration-200 ${activeSection === item.toLowerCase() ? 'text-blue-600' : 'text-gray-600 hover:text-blue-600'}`}
+                    href={`#${item.key}`} 
+                    className={`text-sm font-medium transition-colors duration-200 ${activeSection === item.key ? 'text-blue-600' : 'text-gray-600 hover:text-blue-600'}`}
                   >
-                    {item}
+                    {item.label}
                   </a>
                 </li>
               ))}
@@ -75,7 +83,7 @@ export function Page() {
                   onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                   onBlur={() => setTimeout(() => setIsDropdownOpen(false), 200)}
                 >
-                  Becas
+                  {t.nav.becas}
                   <svg
                     className={`ml-1 h-4 w-4 transition-transform duration-200 ${
                       isDropdownOpen ? 'rotate-180' : ''
@@ -110,7 +118,9 @@ export function Page() {
               </li>
 
             </ul>
-          </nav>
+            </nav>
+            <LanguageSwitcher />
+          </div>
         </div>
       </header>
 
@@ -122,25 +132,21 @@ export function Page() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h1 className="text-5xl font-bold mb-6">Impulsando el Progreso con Inteligencia Artificial</h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12">ANFAIA lidera proyectos innovadores en cultura, arte, salud, robótica y sostenibilidad ambiental. Utilizando la IA para crear un futuro mejor y ético.</p>
-            <Button size="lg" onClick={() => document.getElementById('areas')?.scrollIntoView({ behavior: 'smooth' })}>
-              Explora Nuestras Áreas
-              <ChevronDown className="ml-2 h-4 w-4" />
-            </Button>
+            <h1 className="text-5xl font-bold mb-6">{t.hero.title}</h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12">{t.hero.description}</p>
           </motion.div>
         </section>
 
         <section id="areas" className="mb-24">
-          <h2 className="text-3xl font-bold mb-12 text-center">Nuestras Áreas de Acción</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center">{t.areas.title}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { title: 'Cultura', image: 'culture.webp', description: `Creemos que la inteligencia artificial tiene el potencial de revolucionar la forma en que creamos, compartimos y experimentamos la cultura` },
-              { title: 'Arte', image: 'art.webp', description: 'La intersección entre el arte y la inteligencia artificial ofrece un vasto campo de exploración creativa' },
-              { title: 'Salud', image: 'health.webp', description: 'La aplicación de la IA en el campo de la salud tiene el potencial de salvar vidas y mejorar la calidad de vida de millones de personas' },
-              { title: 'Robótica/Automatización', image: 'robotic.webp', description: 'La combinación de IA y robótica abre un mundo de posibilidades para automatizar tareas y crear sistemas inteligentes' },
-              { title: 'Sostenibilidad', image: 'sustainability.webp', description: 'La IA juega un papel crucial en la lucha contra el cambio climático y la promoción de un futuro sostenible' },
-              { title: 'Ética', image: 'ethic.webp', description: 'Reconocemos la importancia de abordar las implicaciones éticas del desarrollo y uso de la IA' },
+              { title: t.areas.cultura.title, image: 'culture.webp', description: t.areas.cultura.description },
+              { title: t.areas.arte.title, image: 'art.webp', description: t.areas.arte.description },
+              { title: t.areas.salud.title, image: 'health.webp', description: t.areas.salud.description },
+              { title: t.areas.robotica.title, image: 'robotic.webp', description: t.areas.robotica.description },
+              { title: t.areas.sostenibilidad.title, image: 'sustainability.webp', description: t.areas.sostenibilidad.description },
+              { title: t.areas.etica.title, image: 'ethic.webp', description: t.areas.etica.description },
             ].map((area, index) => (
               <motion.div
                 key={index}
@@ -165,30 +171,58 @@ export function Page() {
         <section id="programa" className="mb-24">
           <Card className="bg-blue-50">
             <CardContent className="text-center py-16">
-              <h2 className="text-3xl font-bold mb-6">Becas de Verano ANFAIA 2025</h2>
-              <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">El plazo de inscripción para las Becas de Verano ANFAIA 2025 ha cerrado oficialmente el 31 de marzo de 2025.
-                 Ahora, los seleccionados participarán en este programa durante el verano, 
-                trabajando en proyectos innovadores de inteligencia artificial, contribuyendo al desarrollo de tecnología de vanguardia y al ecosistema open source.</p>
-              <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto"> ¿Quieres recibir información sobre nuestras actividades?
-              Déjanos tus datos para mantenerte al tanto de lo que sucede:</p>
+              <h2 className="text-3xl font-bold mb-6">{t.scholarship.title}</h2>
+              <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">{t.scholarship.description}</p>
+              
+              <p className="text-lg text-gray-600 mb-6 max-w-2xl mx-auto">
+                {t.scholarship.githubText}
+              </p>
 
-              <Button size="lg" onClick={() => window.open('https://forms.gle/5BxnQgzP6EwbzY2t9', '_blank')}>Únete a nuestra lista</Button>
+              <Button size="lg" onClick={() => window.open('https://github.com/anfaia', '_blank')} className="mb-8">
+                <Github className="mr-2 h-5 w-5" />
+                {t.scholarship.githubButton}
+              </Button>
             </CardContent>
           </Card>
         </section>
 
-        <section id="etica" className="mb-24">
-          <h2 className="text-3xl font-bold mb-8 text-center">Nuestro Compromiso Ético</h2>
+        <section className="mb-24">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <Card className="bg-red-50">
+              <CardContent className="text-center py-16">
+                <h2 className="text-3xl font-bold mb-6">{t.youtube.title}</h2>
+                <p className="text-xl text-gray-600 mb-8">
+                  {t.youtube.description}
+                </p>
+
+                <Button size="lg" onClick={() => window.open('https://www.youtube.com/@Anfaia', '_blank')}>
+                  <Youtube className="mr-2 h-5 w-5" />
+                  {t.youtube.button}
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-green-50">
+              <CardContent className="text-center py-16">
+                <h2 className="text-3xl font-bold mb-6">{t.newsletter.title}</h2>
+                <p className="text-xl text-gray-600 mb-8">
+                  {t.newsletter.description}
+                </p>
+
+                <Button size="lg" onClick={() => window.open('https://forms.gle/5BxnQgzP6EwbzY2t9', '_blank')}>
+                  {t.newsletter.button}
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
+        <section id="ética" className="mb-24">
+          <h2 className="text-3xl font-bold mb-8 text-center">{t.ethics.title}</h2>
           <div className="max-w-3xl mx-auto">
-            <p className="text-lg text-gray-600 mb-6">En ANFAIA, creemos firmemente que el desarrollo y la implementación de la Inteligencia Artificial deben estar guiados por sólidos principios éticos. Nos comprometemos a:</p>
+            <p className="text-lg text-gray-600 mb-6">{t.ethics.description}</p>
             <ul className="space-y-4 mb-6">
-              {[
-                'Promover la transparencia en los algoritmos de IA',
-                'Generar y trabajar con fuentes de datos abiertas',
-                'Fomentar la equidad y evitar sesgos discriminatorios',
-                'Considerar el impacto social y ambiental de nuestras tecnologías',
-                'Educar sobre el uso responsable de la IA',
-              ].map((item, index) => (
+              {t.ethics.commitments.map((item, index) => (
                 <motion.li 
                   key={index}
                   initial={{ opacity: 0, x: -20 }}
@@ -203,7 +237,7 @@ export function Page() {
                 </motion.li>
               ))}
             </ul>
-            <p className="text-lg text-gray-600">Trabajamos en estrecha colaboración con expertos en ética, legisladores y la comunidad para asegurar que nuestros proyectos de IA beneficien a la sociedad en su conjunto.</p>
+            <p className="text-lg text-gray-600">{t.ethics.conclusion}</p>
           </div>
         </section>
       </main>
@@ -213,15 +247,21 @@ export function Page() {
           <div className="flex flex-wrap justify-between">
             <div className="w-full md:w-1/3 mb-8 md:mb-0">
               <img src="ANFAIA_logo_square.jpg" alt="ANFAIA Logo" className="w-32 h-auto mb-4" />
-              <p className="text-gray-400"><p>Asociación Nacional Faro, para la</p> 
-              <p>Aceleración de la Inteligencia Artificial</p></p>
+              <div className="text-gray-400">
+                <p>Asociación Nacional Faro,</p>
+                <p>para la Aceleración de la Inteligencia Artificial</p>
+              </div>
             </div>
             <div className="w-full md:w-1/3 mb-8 md:mb-0">
-              <h3 className="text-lg font-semibold mb-4">Enlaces Rápidos</h3>
+              <h3 className="text-lg font-semibold mb-4">{t.footer.quickLinks}</h3>
               <ul className="space-y-2">
-                {['Inicio', 'Áreas', 'Programa', 'Ética'].map((item) => (
-                  <li key={item}>
-                    <a href={`#${item.toLowerCase()}`} className="text-gray-400 hover:text-white transition-colors duration-200">{item}</a>
+                {[
+                  { key: 'inicio', label: t.nav.inicio },
+                  { key: 'programa', label: t.nav.programa },
+                  { key: 'ética', label: t.nav.etica }
+                ].map((item) => (
+                  <li key={item.key}>
+                    <a href={`#${item.key}`} className="text-gray-400 hover:text-white transition-colors duration-200">{item.label}</a>
                   </li>
                 ))}
                
@@ -232,7 +272,7 @@ export function Page() {
                     rel="noopener noreferrer" 
                     className="text-gray-400 hover:text-white transition-colors duration-200"
                   >
-                    Aviso Legal
+                    {t.footer.legalNotice}
                   </a>
                 </li>
                 <li>
@@ -242,19 +282,19 @@ export function Page() {
                     rel="noopener noreferrer" 
                     className="text-gray-400 hover:text-white transition-colors duration-200"
                   >
-                    Política de Privacidad
+                    {t.footer.privacyPolicy}
                   </a>
                 </li>
               </ul>
             </div>
             <div className="w-full md:w-1/3">
-              <h3 className="text-lg font-semibold mb-4">Contacto</h3>
+              <h3 className="text-lg font-semibold mb-4">{t.footer.contact}</h3>
               <p className="text-gray-400 mb-2">info@anfaia.org</p>
               <p className="text-gray-400"></p>
             </div>
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center">
-            <p className="text-gray-400">&copy; 2024 ANFAIA - Todos los derechos reservados.</p>
+            <p className="text-gray-400">{t.footer.copyright}</p>
           </div>
         </div>
       </footer>

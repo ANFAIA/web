@@ -62,19 +62,27 @@ export function Page() {
             <nav>
             <ul className="flex space-x-6">
               {[
-                { key: 'inicio', label: t.nav.inicio },
-                { key: 'programa', label: t.nav.programa },
-                { key: 'ética', label: t.nav.etica }
+                { key: 'inicio', label: t.nav.inicio, href: '#inicio' },
+                { key: 'programa', label: t.nav.programa, href: '#programa' },
+                { key: 'ética', label: t.nav.etica, href: '#ética' }
               ].map((item) => (
                 <li key={item.key}>
-                  <a 
-                    href={`#${item.key}`} 
+                  <a
+                    href={item.href}
                     className={`text-sm font-medium transition-colors duration-200 ${activeSection === item.key ? 'text-blue-600' : 'text-gray-600 hover:text-blue-600'}`}
                   >
                     {item.label}
                   </a>
                 </li>
               ))}
+              <li>
+                <a
+                  href="/blog"
+                  className="text-sm font-medium transition-colors duration-200 text-gray-600 hover:text-blue-600"
+                >
+                  {t.nav.blog}
+                </a>
+              </li>
 
             {/* Becas Dropdown */}
             <li className="relative">
@@ -169,21 +177,48 @@ export function Page() {
         </section>
 
         <section id="programa" className="mb-24">
-          <Card className="bg-blue-50">
-            <CardContent className="text-center py-16">
-              <h2 className="text-3xl font-bold mb-6">{t.scholarship.title}</h2>
-              <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">{t.scholarship.description}</p>
-              
-              <p className="text-lg text-gray-600 mb-6 max-w-2xl mx-auto">
-                {t.scholarship.githubText}
-              </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <Card className="bg-blue-50">
+              <CardContent className="text-center py-16">
+                <h2 className="text-3xl font-bold mb-6">{t.scholarship.title}</h2>
+                <p className="text-xl text-gray-600 mb-8">{t.scholarship.description}</p>
 
-              <Button size="lg" onClick={() => window.open('https://github.com/anfaia', '_blank')} className="mb-8">
-                <Github className="mr-2 h-5 w-5" />
-                {t.scholarship.githubButton}
-              </Button>
-            </CardContent>
-          </Card>
+                <p className="text-lg text-gray-600 mb-6">
+                  {t.scholarship.githubText}
+                </p>
+
+                <Button size="lg" onClick={() => window.open('https://github.com/anfaia', '_blank')} className="w-64">
+                  <Github className="mr-2 h-5 w-5" />
+                  {t.scholarship.githubButton}
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-green-50">
+              <CardContent className="p-8 flex flex-col justify-center h-full items-center text-center">
+                <h2 className="text-3xl font-bold mb-6">{t.blog.latestPost}</h2>
+                <div className="mb-4 w-full">
+                  <img
+                    src="/blog/images/blog1.jpg"
+                    alt="Blog post"
+                    className="w-full h-48 object-cover rounded-lg mb-4"
+                    onError={(e) => {
+                      e.currentTarget.src = 'culture.webp'
+                    }}
+                  />
+                </div>
+                <h3 className="text-xl font-bold mb-3">
+                  {language === 'es' ? 'Clausura de las Becas de Verano ANFAIA 2025: jóvenes investigadores impulsan proyectos de IA con impacto social' : language === 'gl' ? 'Clausura das Bolsas de Verán ANFAIA 2025: mozos investigadores impulsan proxectos de IA con impacto social' : 'Closing Ceremony of ANFAIA Summer Scholarships 2025: Young Researchers Drive AI Projects with Social Impact'}
+                </h3>
+                <p className="text-gray-600 mb-6 line-clamp-3">
+                  {language === 'es' ? 'El pasado jueves 25 de septiembre, la Asociación ANFAIA celebró el acto de clausura de las Becas de Verano ANFAIA 2025 sobre Inteligencia Artificial...' : language === 'gl' ? 'O pasado xoves 25 de setembro, a Asociación ANFAIA celebrou o acto de clausura das Bolsas de Verán ANFAIA 2025 sobre Intelixencia Artificial...' : 'Last Thursday, September 25th, the ANFAIA Association held the closing ceremony of the ANFAIA Summer Scholarships 2025 on Artificial Intelligence...'}
+                </p>
+                <Button size="lg" onClick={() => window.location.href = '/blog/clausura-becas-verano-2025'} className="w-64">
+                  {t.blog.readMore}
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
         </section>
 
         <section className="mb-24">
@@ -195,7 +230,7 @@ export function Page() {
                   {t.youtube.description}
                 </p>
 
-                <Button size="lg" onClick={() => window.open('https://www.youtube.com/@Anfaia', '_blank')}>
+                <Button size="lg" onClick={() => window.open('https://www.youtube.com/@Anfaia', '_blank')} className="w-64">
                   <Youtube className="mr-2 h-5 w-5" />
                   {t.youtube.button}
                 </Button>
@@ -209,7 +244,7 @@ export function Page() {
                   {t.newsletter.description}
                 </p>
 
-                <Button size="lg" onClick={() => window.open('https://forms.gle/5BxnQgzP6EwbzY2t9', '_blank')}>
+                <Button size="lg" onClick={() => window.open('https://forms.gle/5BxnQgzP6EwbzY2t9', '_blank')} className="w-64">
                   {t.newsletter.button}
                 </Button>
               </CardContent>
@@ -258,10 +293,11 @@ export function Page() {
                 {[
                   { key: 'inicio', label: t.nav.inicio },
                   { key: 'programa', label: t.nav.programa },
-                  { key: 'ética', label: t.nav.etica }
+                  { key: 'ética', label: t.nav.etica },
+                  { key: 'blog', label: t.nav.blog, href: '/blog' }
                 ].map((item) => (
                   <li key={item.key}>
-                    <a href={`#${item.key}`} className="text-gray-400 hover:text-white transition-colors duration-200">{item.label}</a>
+                    <a href={'href' in item ? item.href : `#${item.key}`} className="text-gray-400 hover:text-white transition-colors duration-200">{item.label}</a>
                   </li>
                 ))}
                

@@ -11,6 +11,7 @@ export interface Translations {
     becas: string;
     convocatoria2025: string;
     basesGenerales: string;
+    blog: string;
   };
   
   // Hero section
@@ -86,6 +87,14 @@ export interface Translations {
     legalNotice: string;
     privacyPolicy: string;
   };
+
+  // Blog
+  blog: {
+    title: string;
+    latestPost: string;
+    readMore: string;
+    allPosts: string;
+  };
 }
 
 export const translations: Record<Language, Translations> = {
@@ -96,7 +105,8 @@ export const translations: Record<Language, Translations> = {
       etica: 'Ética',
       becas: 'Becas',
       convocatoria2025: 'Convocatoria 2025',
-      basesGenerales: 'Bases Generales'
+      basesGenerales: 'Bases Generales',
+      blog: 'Blog'
     },
     hero: {
       title: 'Impulsando el Progreso con Inteligencia Artificial',
@@ -163,6 +173,12 @@ export const translations: Record<Language, Translations> = {
       copyright: '© 2024 ANFAIA - Todos los derechos reservados.',
       legalNotice: 'Aviso Legal',
       privacyPolicy: 'Política de Privacidad'
+    },
+    blog: {
+      title: 'Blog',
+      latestPost: 'Última Entrada del Blog',
+      readMore: 'Leer más',
+      allPosts: 'Ver todas las entradas'
     }
   },
   
@@ -173,7 +189,8 @@ export const translations: Record<Language, Translations> = {
       etica: 'Ethics',
       becas: 'Scholarships',
       convocatoria2025: '2025 Call',
-      basesGenerales: 'General Guidelines'
+      basesGenerales: 'General Guidelines',
+      blog: 'Blog'
     },
     hero: {
       title: 'Driving Progress with Artificial Intelligence',
@@ -240,6 +257,12 @@ export const translations: Record<Language, Translations> = {
       copyright: '© 2024 ANFAIA - All rights reserved.',
       legalNotice: 'Legal Notice',
       privacyPolicy: 'Privacy Policy'
+    },
+    blog: {
+      title: 'Blog',
+      latestPost: 'Latest Blog Post',
+      readMore: 'Read more',
+      allPosts: 'View all posts'
     }
   },
   
@@ -250,7 +273,8 @@ export const translations: Record<Language, Translations> = {
       etica: 'Ética',
       becas: 'Bolsas',
       convocatoria2025: 'Convocatoria 2025',
-      basesGenerales: 'Bases Xerais'
+      basesGenerales: 'Bases Xerais',
+      blog: 'Blog'
     },
     hero: {
       title: 'Impulsando o Progreso coa Intelixencia Artificial',
@@ -317,6 +341,12 @@ export const translations: Record<Language, Translations> = {
       copyright: '© 2024 ANFAIA - Todos os dereitos reservados.',
       legalNotice: 'Aviso Legal',
       privacyPolicy: 'Política de Privacidade'
+    },
+    blog: {
+      title: 'Blog',
+      latestPost: 'Última Entrada do Blog',
+      readMore: 'Ler máis',
+      allPosts: 'Ver todas as entradas'
     }
   }
 };

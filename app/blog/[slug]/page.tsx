@@ -140,7 +140,7 @@ Coa clausura da edición 2025, ANFAIA reafirma a súa aposta pola formación pr�
 Os cinco proxectos xa están dispoñibles en GitHub, o que permite que a comunidade poida continuar explorando, mellorando e aplicando as solucións desenvolvidas. Para os bolseiros, este é só o primeiro paso dun camiño que promete seguir crecendo, impulsado pola creatividade, a aprendizaxe colaborativa e a capacidade de transformar a intelixencia artificial nunha ferramenta ao servizo da sociedade.`
     },
     image: '/blog/images/blog1.jpg',
-    date: '2025-09-25'
+    date: '2025-10-03'
   },
   {
     slug: 'origen-anfaia-proyectos',

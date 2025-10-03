@@ -21,7 +21,7 @@ const blogPosts = [
       gl: 'O pasado xoves 25 de setembro, a Asociación ANFAIA celebrou o acto de clausura das Bolsas de Verán ANFAIA 2025 sobre Intelixencia Artificial, un programa que durante os meses de xullo e agosto reuniu a cinco mozos investigadores ao redor de proxectos innovadores con impacto social.'
     },
     image: '/blog/images/blog1.jpg',
-    date: '2025-09-25'
+    date: '2025-10-03'
   },
   {
     slug: 'origen-anfaia-proyectos',
@@ -36,7 +36,7 @@ const blogPosts = [
       gl: 'Descobre como naceu ANFAIA, a nosa misión de democratizar a intelixencia artificial e os proxectos innovadores que estamos desenvolvendo en cultura, saúde, educación e sustentabilidade.'
     },
     image: '/culture.webp',
-    date: '2024-10-03'
+    date: '2025-10-03'
   }
 ]
 

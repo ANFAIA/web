@@ -145,27 +145,44 @@ export default function BlogPage() {
       <main className="container mx-auto px-4 py-12">
         <h1 className="text-4xl font-bold mb-12 text-center">{t.blog.title}</h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {blogPosts.map((post) => (
-            <Link key={post.slug} href={`/blog/${post.slug}`} className="block">
-              <Card className="overflow-hidden transition-all duration-300 hover:shadow-lg flex flex-col h-full cursor-pointer hover:scale-105">
-                <div className="w-full h-48 overflow-hidden">
+            <Link key={post.slug} href={`/blog/${post.slug}`} className="block group">
+              <Card className="overflow-hidden transition-all duration-300 hover:shadow-2xl flex flex-col h-full cursor-pointer border-0 shadow-md">
+                <div className="relative w-full h-64 overflow-hidden bg-gradient-to-br from-blue-50 to-gray-100">
                   <img
                     src={post.image}
                     alt={post.title[language]}
-                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     onError={(e) => {
-                      e.currentTarget.src = '/culture.webp' // Fallback image
+                      e.currentTarget.src = '/culture.webp'
                     }}
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
-                <CardHeader>
-                  <CardTitle className="hover:text-blue-600 transition-colors">{post.title[language]}</CardTitle>
-                  <p className="text-sm text-gray-500">{new Date(post.date).toLocaleDateString(language === 'es' ? 'es-ES' : language === 'gl' ? 'gl-ES' : 'en-US')}</p>
+                <CardHeader className="pb-3">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="h-1 w-12 bg-blue-600 rounded-full" />
+                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                      {new Date(post.date).toLocaleDateString(language === 'es' ? 'es-ES' : language === 'gl' ? 'gl-ES' : 'en-US', {
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric'
+                      })}
+                    </p>
+                  </div>
+                  <CardTitle className="text-xl leading-tight group-hover:text-blue-600 transition-colors duration-300 line-clamp-3">
+                    {post.title[language]}
+                  </CardTitle>
                 </CardHeader>
-                <CardContent className="flex-grow flex flex-col">
-                  <p className="text-gray-600 mb-4 flex-grow">{post.summary[language]}</p>
-                  <span className="text-blue-600 font-semibold hover:underline">{t.blog.readMore} →</span>
+                <CardContent className="flex-grow flex flex-col pt-0">
+                  <p className="text-gray-600 mb-4 flex-grow line-clamp-3 leading-relaxed">
+                    {post.summary[language]}
+                  </p>
+                  <div className="flex items-center text-blue-600 font-semibold group-hover:gap-3 gap-2 transition-all duration-300">
+                    <span>{t.blog.readMore}</span>
+                    <span className="transform group-hover:translate-x-1 transition-transform duration-300">→</span>
+                  </div>
                 </CardContent>
               </Card>
             </Link>

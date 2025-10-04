@@ -170,7 +170,7 @@ export const translations: Record<Language, Translations> = {
     footer: {
       quickLinks: 'Enlaces Rápidos',
       contact: 'Contacto',
-      copyright: '© 2024 ANFAIA - Todos los derechos reservados.',
+      copyright: '© 2025 ANFAIA - Todos los derechos reservados.',
       legalNotice: 'Aviso Legal',
       privacyPolicy: 'Política de Privacidad'
     },
@@ -254,7 +254,7 @@ export const translations: Record<Language, Translations> = {
     footer: {
       quickLinks: 'Quick Links',
       contact: 'Contact',
-      copyright: '© 2024 ANFAIA - All rights reserved.',
+      copyright: '© 2025 ANFAIA - All rights reserved.',
       legalNotice: 'Legal Notice',
       privacyPolicy: 'Privacy Policy'
     },
@@ -338,7 +338,7 @@ export const translations: Record<Language, Translations> = {
     footer: {
       quickLinks: 'Enlaces Rápidos',
       contact: 'Contacto',
-      copyright: '© 2024 ANFAIA - Todos os dereitos reservados.',
+      copyright: '© 2025 ANFAIA - Todos os dereitos reservados.',
       legalNotice: 'Aviso Legal',
       privacyPolicy: 'Política de Privacidade'
     },

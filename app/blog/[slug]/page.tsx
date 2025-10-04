@@ -280,7 +280,7 @@ Con cada proxecto, con cada bolseiro formado, con cada liña de código aberto, 
 Este blog é a nosa ventá ao mundo. Aquí compartiremos avances, reflexións, éxitos e aprendizaxes. Pero sobre todo, é un convite a formar parte desta comunidade que está construíndo o futuro da innovación tecnolóxica, un proxecto á vez.`
     },
     image: '/culture.webp',
-    date: '2024-10-03'
+    date: '2025-10-03'
   }
 ]
 

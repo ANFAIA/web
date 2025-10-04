@@ -3,7 +3,7 @@ import BlogPostClient from './BlogPostClient'
 export const runtime = 'edge'
 
 // Blog posts data - should match the data in blog/page.tsx
-export const blogPosts = [
+const blogPosts = [
   {
     slug: 'clausura-becas-verano-2025',
     title: {

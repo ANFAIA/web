@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog"
 import { motion } from 'framer-motion'
-import { ChevronDown, Github, Youtube } from 'lucide-react'
+import { ChevronDown, Github, Youtube, Menu, X } from 'lucide-react'
 import { useTranslations } from '@/lib/translations'
 import { LanguageSwitcher } from '@/components/ui/language-switcher'
 
@@ -15,7 +15,7 @@ export function Page() {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [email, setEmail] = useState('')
   const [activeSection, setActiveSection] = useState('')
-
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const becasLinks = [
@@ -55,81 +55,163 @@ export function Page() {
 
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900">
-      <header className="bg-white shadow-md">
+      <header className="bg-white shadow-md sticky top-0 z-50">
         <div className="container mx-auto px-4 py-6 flex justify-between items-center">
           <img src="ANFAIA_logo_web.png" alt="ANFAIA Logo" className="w-40 h-auto" />
-          <div className="flex items-center space-x-4">
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-4">
             <nav>
-            <ul className="flex space-x-6">
-              {[
-                { key: 'inicio', label: t.nav.inicio, href: '#inicio' },
-                { key: 'programa', label: t.nav.programa, href: '#programa' },
-                { key: 'ética', label: t.nav.etica, href: '#ética' }
-              ].map((item) => (
-                <li key={item.key}>
+              <ul className="flex space-x-6">
+                {[
+                  { key: 'inicio', label: t.nav.inicio, href: '#inicio' },
+                  { key: 'programa', label: t.nav.programa, href: '#programa' },
+                  { key: 'ética', label: t.nav.etica, href: '#ética' }
+                ].map((item) => (
+                  <li key={item.key}>
+                    <a
+                      href={item.href}
+                      className={`text-sm font-medium transition-colors duration-200 ${activeSection === item.key ? 'text-blue-600' : 'text-gray-600 hover:text-blue-600'}`}
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
+                <li>
                   <a
-                    href={item.href}
-                    className={`text-sm font-medium transition-colors duration-200 ${activeSection === item.key ? 'text-blue-600' : 'text-gray-600 hover:text-blue-600'}`}
+                    href="/blog"
+                    className="text-sm font-medium transition-colors duration-200 text-gray-600 hover:text-blue-600"
                   >
-                    {item.label}
+                    {t.nav.blog}
                   </a>
                 </li>
-              ))}
-              <li>
-                <a
-                  href="/blog"
-                  className="text-sm font-medium transition-colors duration-200 text-gray-600 hover:text-blue-600"
-                >
-                  {t.nav.blog}
-                </a>
-              </li>
 
-            {/* Becas Dropdown */}
-            <li className="relative">
-                <button
-                  className="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors duration-200 flex items-center"
-                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                  onBlur={() => setTimeout(() => setIsDropdownOpen(false), 200)}
-                >
-                  {t.nav.becas}
-                  <svg
-                    className={`ml-1 h-4 w-4 transition-transform duration-200 ${
-                      isDropdownOpen ? 'rotate-180' : ''
-                    }`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                {/* Becas Dropdown */}
+                <li className="relative">
+                  <button
+                    className="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors duration-200 flex items-center"
+                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                    onBlur={() => setTimeout(() => setIsDropdownOpen(false), 200)}
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </button>
+                    {t.nav.becas}
+                    <svg
+                      className={`ml-1 h-4 w-4 transition-transform duration-200 ${
+                        isDropdownOpen ? 'rotate-180' : ''
+                      }`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </button>
 
-                {isDropdownOpen && (
-                  <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10">
-                    {becasLinks.map((link) => (
-                      <a
-                        key={link.name}
-                        href={link.href}
-                        target="_blank" 
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-blue-600"
-                      >
-                        {link.name}
-                      </a>
-                    ))}
-                  </div>
-                )}
-              </li>
-
-            </ul>
+                  {isDropdownOpen && (
+                    <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10">
+                      {becasLinks.map((link) => (
+                        <a
+                          key={link.name}
+                          href={link.href}
+                          target="_blank"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-blue-600"
+                        >
+                          {link.name}
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </li>
+              </ul>
             </nav>
             <LanguageSwitcher />
           </div>
+
+          {/* Mobile Menu Button */}
+          <div className="md:hidden flex items-center space-x-4">
+            <LanguageSwitcher />
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="text-gray-600 hover:text-blue-600 transition-colors"
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
+
+        {/* Mobile Navigation Menu */}
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden bg-white border-t border-gray-200"
+          >
+            <nav className="container mx-auto px-4 py-4">
+              <ul className="space-y-4">
+                {[
+                  { key: 'inicio', label: t.nav.inicio, href: '#inicio' },
+                  { key: 'programa', label: t.nav.programa, href: '#programa' },
+                  { key: 'ética', label: t.nav.etica, href: '#ética' }
+                ].map((item) => (
+                  <li key={item.key}>
+                    <a
+                      href={item.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={`block text-base font-medium transition-colors duration-200 ${activeSection === item.key ? 'text-blue-600' : 'text-gray-600 hover:text-blue-600'}`}
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
+                <li>
+                  <a
+                    href="/blog"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block text-base font-medium transition-colors duration-200 text-gray-600 hover:text-blue-600"
+                  >
+                    {t.nav.blog}
+                  </a>
+                </li>
+
+                {/* Mobile Becas Links */}
+                <li>
+                  <button
+                    className="w-full text-left text-base font-medium text-gray-600 hover:text-blue-600 transition-colors duration-200 flex items-center justify-between"
+                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                  >
+                    {t.nav.becas}
+                    <ChevronDown
+                      className={`h-4 w-4 transition-transform duration-200 ${
+                        isDropdownOpen ? 'rotate-180' : ''
+                      }`}
+                    />
+                  </button>
+                  {isDropdownOpen && (
+                    <ul className="mt-2 ml-4 space-y-2">
+                      {becasLinks.map((link) => (
+                        <li key={link.name}>
+                          <a
+                            href={link.href}
+                            target="_blank"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className="block text-sm text-gray-600 hover:text-blue-600"
+                          >
+                            {link.name}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              </ul>
+            </nav>
+          </motion.div>
+        )}
       </header>
 
       <main className="container mx-auto px-4 py-12">

@@ -214,147 +214,250 @@ export function Page() {
         )}
       </header>
 
-      <main className="container mx-auto px-4 py-12">
-        <section id="inicio" className="mb-24">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
-          >
-            <h1 className="text-5xl font-bold mb-6">{t.hero.title}</h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12">{t.hero.description}</p>
-          </motion.div>
-        </section>
-
-        <section id="areas" className="mb-24">
-          <h2 className="text-3xl font-bold mb-12 text-center">{t.areas.title}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { title: t.areas.cultura.title, image: 'culture.webp', description: t.areas.cultura.description },
-              { title: t.areas.arte.title, image: 'art.webp', description: t.areas.arte.description },
-              { title: t.areas.salud.title, image: 'health.webp', description: t.areas.salud.description },
-              { title: t.areas.robotica.title, image: 'robotic.webp', description: t.areas.robotica.description },
-              { title: t.areas.sostenibilidad.title, image: 'sustainability.webp', description: t.areas.sostenibilidad.description },
-              { title: t.areas.etica.title, image: 'ethic.webp', description: t.areas.etica.description },
-            ].map((area, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <Card className="overflow-hidden h-full transition-all duration-300 hover:shadow-lg">
-                  <img src={`${area.image}`} alt={area.title} className="w-full h-48 object-cover" />
-                  <CardHeader>
-                    <CardTitle>{area.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600">{area.description}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+      <main>
+        {/* Hero Section with improved design */}
+        <section id="inicio" className="relative bg-gradient-to-br from-blue-50 via-white to-gray-50 py-20 md:py-32">
+          <div className="container mx-auto px-4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-center max-w-5xl mx-auto"
+            >
+              <div className="inline-block mb-6">
+                <div className="h-1 w-20 bg-blue-600 rounded-full mx-auto mb-6"></div>
+              </div>
+              <h1 className="text-4xl md:text-6xl font-bold mb-8 leading-tight pb-2">
+                {t.hero.title}
+              </h1>
+              <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-12 leading-relaxed">
+                {t.hero.description}
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <Button
+                  size="lg"
+                  onClick={() => window.open('https://forms.gle/5BxnQgzP6EwbzY2t9', '_blank')}
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-lg shadow-lg hover:shadow-xl transition-all"
+                >
+                  {t.newsletter.button}
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  onClick={() => document.getElementById('programa')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="px-8 py-6 text-lg border-2 hover:bg-gray-50"
+                >
+                  {t.nav.programa}
+                </Button>
+              </div>
+            </motion.div>
           </div>
         </section>
 
-        <section id="programa" className="mb-24">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card className="bg-blue-50">
-              <CardContent className="text-center py-16">
-                <h2 className="text-3xl font-bold mb-6">{t.scholarship.title}</h2>
-                <p className="text-xl text-gray-600 mb-8">{t.scholarship.description}</p>
+        {/* Areas Section */}
+        <section id="areas" className="py-20 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <div className="h-1 w-16 bg-blue-600 rounded-full mx-auto mb-6"></div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">{t.areas.title}</h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                {language === 'es'
+                  ? 'Exploramos diversas áreas donde la IA puede transformar la sociedad'
+                  : language === 'gl'
+                  ? 'Exploramos diversas áreas onde a IA pode transformar a sociedade'
+                  : 'We explore various areas where AI can transform society'}
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+              {[
+                { title: t.areas.cultura.title, image: 'culture.webp', description: t.areas.cultura.description },
+                { title: t.areas.arte.title, image: 'art.webp', description: t.areas.arte.description },
+                { title: t.areas.salud.title, image: 'health.webp', description: t.areas.salud.description },
+                { title: t.areas.robotica.title, image: 'robotic.webp', description: t.areas.robotica.description },
+                { title: t.areas.sostenibilidad.title, image: 'sustainability.webp', description: t.areas.sostenibilidad.description },
+                { title: t.areas.etica.title, image: 'ethic.webp', description: t.areas.etica.description },
+              ].map((area, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="group"
+                >
+                  <Card className="overflow-hidden h-full transition-all duration-300 hover:shadow-2xl border-0 shadow-md">
+                    <div className="relative overflow-hidden h-48">
+                      <img
+                        src={`${area.image}`}
+                        alt={area.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <CardHeader className="pb-3">
+                      <CardTitle className="text-xl group-hover:text-blue-600 transition-colors">{area.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-gray-600 leading-relaxed">{area.description}</p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
 
-                <p className="text-lg text-gray-600 mb-6">
-                  {t.scholarship.githubText}
-                </p>
+        {/* Program Section */}
+        <section id="programa" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <div className="h-1 w-16 bg-blue-600 rounded-full mx-auto mb-6"></div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">{t.nav.programa}</h2>
+            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+              {/* GitHub Projects Card */}
+              <Card className="bg-gradient-to-br from-blue-500 to-blue-600 text-white border-0 shadow-xl hover:shadow-2xl transition-shadow">
+                <CardContent className="text-center py-12 px-8">
+                  <Github className="w-16 h-16 mx-auto mb-6 opacity-90" />
+                  <h3 className="text-3xl font-bold mb-4">{t.scholarship.title}</h3>
+                  <p className="text-xl text-blue-50 mb-6 leading-relaxed">
+                    {t.scholarship.description}
+                  </p>
+                  <p className="text-lg text-blue-100 mb-8">
+                    {t.scholarship.githubText}
+                  </p>
+                  <Button
+                    size="lg"
+                    onClick={() => window.open('https://github.com/anfaia', '_blank')}
+                    className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-6 text-lg shadow-lg font-semibold"
+                  >
+                    <Github className="mr-2 h-5 w-5" />
+                    {t.scholarship.githubButton}
+                  </Button>
+                </CardContent>
+              </Card>
 
-                <Button size="lg" onClick={() => window.open('https://github.com/anfaia', '_blank')} className="w-64">
-                  <Github className="mr-2 h-5 w-5" />
-                  {t.scholarship.githubButton}
-                </Button>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-green-50">
-              <CardContent className="p-8 flex flex-col justify-center h-full items-center text-center">
-                <h2 className="text-3xl font-bold mb-6">{t.blog.latestPost}</h2>
-                <div className="mb-4 w-full">
+              {/* Latest Blog Post Card */}
+              <Card className="bg-white border-0 shadow-xl hover:shadow-2xl transition-shadow overflow-hidden group">
+                <div className="relative h-64 overflow-hidden">
                   <img
                     src="/blog/images/blog1.jpg"
                     alt="Blog post"
-                    className="w-full h-48 object-cover rounded-lg mb-4"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     onError={(e) => {
                       e.currentTarget.src = 'culture.webp'
                     }}
                   />
-                </div>
-                <h3 className="text-xl font-bold mb-3">
-                  {language === 'es' ? 'Clausura de las Becas de Verano ANFAIA 2025: jóvenes investigadores impulsan proyectos de IA con impacto social' : language === 'gl' ? 'Clausura das Bolsas de Verán ANFAIA 2025: mozos investigadores impulsan proxectos de IA con impacto social' : 'Closing Ceremony of ANFAIA Summer Scholarships 2025: Young Researchers Drive AI Projects with Social Impact'}
-                </h3>
-                <p className="text-gray-600 mb-6 line-clamp-3">
-                  {language === 'es' ? 'El pasado jueves 25 de septiembre, la Asociación ANFAIA celebró el acto de clausura de las Becas de Verano ANFAIA 2025 sobre Inteligencia Artificial...' : language === 'gl' ? 'O pasado xoves 25 de setembro, a Asociación ANFAIA celebrou o acto de clausura das Bolsas de Verán ANFAIA 2025 sobre Intelixencia Artificial...' : 'Last Thursday, September 25th, the ANFAIA Association held the closing ceremony of the ANFAIA Summer Scholarships 2025 on Artificial Intelligence...'}
-                </p>
-                <Button size="lg" onClick={() => window.location.href = '/blog/clausura-becas-verano-2025'} className="w-64">
-                  {t.blog.readMore}
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
-
-        <section className="mb-24">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card className="bg-red-50">
-              <CardContent className="text-center py-16">
-                <h2 className="text-3xl font-bold mb-6">{t.youtube.title}</h2>
-                <p className="text-xl text-gray-600 mb-8">
-                  {t.youtube.description}
-                </p>
-
-                <Button size="lg" onClick={() => window.open('https://www.youtube.com/@Anfaia', '_blank')} className="w-64">
-                  <Youtube className="mr-2 h-5 w-5" />
-                  {t.youtube.button}
-                </Button>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-green-50">
-              <CardContent className="text-center py-16">
-                <h2 className="text-3xl font-bold mb-6">{t.newsletter.title}</h2>
-                <p className="text-xl text-gray-600 mb-8">
-                  {t.newsletter.description}
-                </p>
-
-                <Button size="lg" onClick={() => window.open('https://forms.gle/5BxnQgzP6EwbzY2t9', '_blank')} className="w-64">
-                  {t.newsletter.button}
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
-
-        <section id="ética" className="mb-24">
-          <h2 className="text-3xl font-bold mb-8 text-center">{t.ethics.title}</h2>
-          <div className="max-w-3xl mx-auto">
-            <p className="text-lg text-gray-600 mb-6">{t.ethics.description}</p>
-            <ul className="space-y-4 mb-6">
-              {t.ethics.commitments.map((item, index) => (
-                <motion.li 
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="flex items-start"
-                >
-                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center mr-3 mt-1">
-                    <div className="w-2 h-2 rounded-full bg-blue-600"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                  <div className="absolute top-4 left-4 bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold">
+                    {t.blog.latestPost}
                   </div>
-                  <span className="text-gray-700">{item}</span>
-                </motion.li>
-              ))}
-            </ul>
-            <p className="text-lg text-gray-600">{t.ethics.conclusion}</p>
+                </div>
+                <CardContent className="p-8">
+                  <h3 className="text-2xl font-bold mb-4 line-clamp-3 group-hover:text-blue-600 transition-colors">
+                    {language === 'es'
+                      ? 'Clausura de las Becas de Verano ANFAIA 2025: jóvenes investigadores impulsan proyectos de IA con impacto social'
+                      : language === 'gl'
+                      ? 'Clausura das Bolsas de Verán ANFAIA 2025: mozos investigadores impulsan proxectos de IA con impacto social'
+                      : 'Closing Ceremony of ANFAIA Summer Scholarships 2025: Young Researchers Drive AI Projects with Social Impact'}
+                  </h3>
+                  <p className="text-gray-600 mb-6 line-clamp-3 leading-relaxed">
+                    {language === 'es'
+                      ? 'El pasado jueves 25 de septiembre, la Asociación ANFAIA celebró el acto de clausura de las Becas de Verano ANFAIA 2025 sobre Inteligencia Artificial...'
+                      : language === 'gl'
+                      ? 'O pasado xoves 25 de setembro, a Asociación ANFAIA celebrou o acto de clausura das Bolsas de Verán ANFAIA 2025 sobre Intelixencia Artificial...'
+                      : 'Last Thursday, September 25th, the ANFAIA Association held the closing ceremony of the ANFAIA Summer Scholarships 2025 on Artificial Intelligence...'}
+                  </p>
+                  <Button
+                    size="lg"
+                    onClick={() => (window.location.href = '/blog/clausura-becas-verano-2025')}
+                    className="w-full bg-blue-600 hover:bg-blue-700"
+                  >
+                    {t.blog.readMore} →
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* YouTube & Newsletter Section */}
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+              {/* YouTube Card */}
+              <Card className="bg-gradient-to-br from-red-500 to-red-600 text-white border-0 shadow-xl hover:shadow-2xl transition-shadow">
+                <CardContent className="text-center py-12 px-8">
+                  <Youtube className="w-16 h-16 mx-auto mb-6 opacity-90" />
+                  <h3 className="text-3xl font-bold mb-4">{t.youtube.title}</h3>
+                  <p className="text-xl text-red-50 mb-8 leading-relaxed">{t.youtube.description}</p>
+                  <Button
+                    size="lg"
+                    onClick={() => window.open('https://www.youtube.com/@Anfaia', '_blank')}
+                    className="bg-white text-red-600 hover:bg-red-50 px-8 py-6 text-lg shadow-lg font-semibold"
+                  >
+                    <Youtube className="mr-2 h-5 w-5" />
+                    {t.youtube.button}
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* Newsletter Card */}
+              <Card className="bg-gradient-to-br from-green-500 to-green-600 text-white border-0 shadow-xl hover:shadow-2xl transition-shadow">
+                <CardContent className="text-center py-12 px-8">
+                  <div className="w-16 h-16 mx-auto mb-6 bg-white/20 rounded-full flex items-center justify-center">
+                    <svg className="w-10 h-10" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                      <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-3xl font-bold mb-4">{t.newsletter.title}</h3>
+                  <p className="text-xl text-green-50 mb-8 leading-relaxed">{t.newsletter.description}</p>
+                  <Button
+                    size="lg"
+                    onClick={() => window.open('https://forms.gle/5BxnQgzP6EwbzY2t9', '_blank')}
+                    className="bg-white text-green-600 hover:bg-green-50 px-8 py-6 text-lg shadow-lg font-semibold"
+                  >
+                    {t.newsletter.button}
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* Ethics Section */}
+        <section id="ética" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-12">
+                <div className="h-1 w-16 bg-blue-600 rounded-full mx-auto mb-6"></div>
+                <h2 className="text-3xl md:text-4xl font-bold mb-6">{t.ethics.title}</h2>
+                <p className="text-lg md:text-xl text-gray-600 leading-relaxed">{t.ethics.description}</p>
+              </div>
+              <Card className="bg-white border-0 shadow-xl">
+                <CardContent className="p-8 md:p-12">
+                  <ul className="space-y-6">
+                    {t.ethics.commitments.map((item, index) => (
+                      <motion.li
+                        key={index}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                        className="flex items-start group"
+                      >
+                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-4 mt-0.5 group-hover:bg-blue-600 transition-colors">
+                          <div className="w-2.5 h-2.5 rounded-full bg-blue-600 group-hover:bg-white transition-colors"></div>
+                        </div>
+                        <span className="text-gray-700 text-lg leading-relaxed">{item}</span>
+                      </motion.li>
+                    ))}
+                  </ul>
+                  <div className="mt-10 pt-8 border-t border-gray-200">
+                    <p className="text-lg text-gray-600 leading-relaxed text-center">{t.ethics.conclusion}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </section>
       </main>

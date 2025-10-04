@@ -1,7 +1,5 @@
 import BlogPostClient from './BlogPostClient'
 
-export const runtime = 'edge'
-
 // Blog posts data - should match the data in blog/page.tsx
 const blogPosts = [
   {
@@ -286,13 +284,16 @@ Este blog é a nosa ventá ao mundo. Aquí compartiremos avances, reflexións, �
   }
 ]
 
-export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
-  const resolvedParams = await params
-  return <BlogPostClient slug={resolvedParams.slug} blogPosts={blogPosts} />
+type PageProps = {
+  params: { slug: string }
 }
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
   return blogPosts.map((post) => ({
     slug: post.slug,
   }))
+}
+
+export default function BlogPostPage({ params }: PageProps) {
+  return <BlogPostClient slug={params.slug} blogPosts={blogPosts} />
 }

@@ -143,31 +143,45 @@ export default function BlogPostClient({ slug, blogPosts }: { slug: string, blog
         )}
       </header>
 
-      <main className="container mx-auto px-4 py-12">
-        <article className="max-w-4xl mx-auto">
-          <Link href="/blog">
-            <Button variant="outline" className="mb-6">← {t.blog.allPosts}</Button>
-          </Link>
-
+      <main className="bg-white">
+        {/* Hero Section */}
+        <div className="relative w-full h-[500px] overflow-hidden bg-gradient-to-br from-gray-900 to-gray-700">
           <img
             src={post.image}
             alt={post.title[language]}
-            className="w-full h-auto object-contain rounded-lg mb-8"
+            className="w-full h-full object-cover opacity-40"
             onError={(e) => {
-              e.currentTarget.src = '/culture.webp' // Fallback image
+              e.currentTarget.src = '/culture.webp'
             }}
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+          <div className="absolute inset-0 flex items-end">
+            <div className="container mx-auto px-4 pb-12 max-w-4xl">
+              <Link href="/blog">
+                <Button variant="outline" className="mb-6 bg-white/90 hover:bg-white border-0 shadow-lg">
+                  ← {t.blog.allPosts}
+                </Button>
+              </Link>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="h-1 w-16 bg-blue-500 rounded-full" />
+                <p className="text-sm font-semibold text-white/90 uppercase tracking-wider">
+                  {new Date(post.date).toLocaleDateString(language === 'es' ? 'es-ES' : language === 'gl' ? 'gl-ES' : 'en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                  })}
+                </p>
+              </div>
+              <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight drop-shadow-lg">
+                {post.title[language]}
+              </h1>
+            </div>
+          </div>
+        </div>
 
-          <h1 className="text-4xl font-bold mb-4">{post.title[language]}</h1>
-          <p className="text-gray-500 mb-8">
-            {new Date(post.date).toLocaleDateString(language === 'es' ? 'es-ES' : language === 'gl' ? 'gl-ES' : 'en-US', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric'
-            })}
-          </p>
-
-          <div className="prose prose-lg max-w-none">
+        {/* Article Content */}
+        <article className="container mx-auto px-4 py-16 max-w-3xl">
+          <div className="prose prose-lg prose-blue max-w-none">
             {post.content[language].split('\n').map((paragraph, index) => {
               // Function to render text with bold formatting and links
               const renderWithFormatting = (text: string) => {
@@ -177,20 +191,32 @@ export default function BlogPostClient({ slug, blogPosts }: { slug: string, blog
 
                 // Process the text character by character
                 while (remainingText.length > 0) {
+                  // Check for bold+link pattern **[text](url)**
+                  const boldLinkMatch = remainingText.match(/^\*\*\[([^\]]+)\]\(([^)]+)\)\*\*/)
+                  if (boldLinkMatch) {
+                    const linkText = boldLinkMatch[1]
+                    const url = boldLinkMatch[2]
+                    elements.push(
+                      <strong key={key++}>
+                        <a
+                          href={url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-600 hover:text-blue-800 underline"
+                        >
+                          {linkText}
+                        </a>
+                      </strong>
+                    )
+                    remainingText = remainingText.slice(boldLinkMatch[0].length)
+                    continue
+                  }
+
                   // Check for markdown link pattern [text](url)
                   const linkMatch = remainingText.match(/^\[([^\]]+)\]\(([^)]+)\)/)
                   if (linkMatch) {
                     const linkText = linkMatch[1]
                     const url = linkMatch[2]
-
-                    // Process bold within link text
-                    const boldParts = linkText.split(/(\*\*[^*]+\*\*)/g)
-                    const processedLinkText = boldParts.map((boldPart, j) => {
-                      if (boldPart.startsWith('**') && boldPart.endsWith('**')) {
-                        return <strong key={j}>{boldPart.slice(2, -2)}</strong>
-                      }
-                      return boldPart
-                    })
 
                     elements.push(
                       <a
@@ -200,7 +226,7 @@ export default function BlogPostClient({ slug, blogPosts }: { slug: string, blog
                         rel="noopener noreferrer"
                         className="text-blue-600 hover:text-blue-800 font-semibold underline"
                       >
-                        {processedLinkText}
+                        {linkText}
                       </a>
                     )
                     remainingText = remainingText.slice(linkMatch[0].length)
@@ -224,33 +250,66 @@ export default function BlogPostClient({ slug, blogPosts }: { slug: string, blog
               }
 
               if (paragraph.startsWith('# ')) {
-                return <h1 key={index} className="text-3xl font-bold mt-8 mb-4">{paragraph.substring(2)}</h1>
+                return null // Skip main title since it's in hero
               } else if (paragraph.startsWith('## ')) {
-                return <h2 key={index} className="text-2xl font-bold mt-6 mb-3">{paragraph.substring(3)}</h2>
+                return (
+                  <h2 key={index} className="text-3xl font-bold mt-12 mb-6 text-gray-900 first:mt-0">
+                    {paragraph.substring(3)}
+                  </h2>
+                )
               } else if (paragraph.startsWith('- ')) {
-                return <li key={index} className="ml-6 mb-2">{renderWithFormatting(paragraph.substring(2))}</li>
+                return (
+                  <li key={index} className="ml-6 mb-3 text-gray-700 leading-relaxed text-lg">
+                    {renderWithFormatting(paragraph.substring(2))}
+                  </li>
+                )
               } else if (paragraph.trim() !== '') {
-                return <p key={index} className="mb-4 text-gray-700">{renderWithFormatting(paragraph)}</p>
+                return (
+                  <p key={index} className="mb-6 text-gray-700 leading-relaxed text-lg">
+                    {renderWithFormatting(paragraph)}
+                  </p>
+                )
               }
               return null
             })}
           </div>
 
+          {/* Decorative end mark */}
+          <div className="flex justify-center mt-16 mb-8">
+            <div className="flex items-center gap-2">
+              <div className="h-1 w-1 bg-gray-400 rounded-full" />
+              <div className="h-1 w-1 bg-gray-400 rounded-full" />
+              <div className="h-1 w-1 bg-gray-400 rounded-full" />
+            </div>
+          </div>
+
           {post.slug === 'origen-anfaia-proyectos' && (
-            <div className="mt-8 text-center">
+            <div className="mt-12 p-8 bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl text-center border border-blue-200">
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">
+                {language === 'es' ? '¿Quieres ser parte del cambio?' : language === 'gl' ? 'Queres ser parte do cambio?' : 'Want to be part of the change?'}
+              </h3>
+              <p className="text-gray-600 mb-6 max-w-xl mx-auto">
+                {language === 'es'
+                  ? 'Únete a nuestra comunidad y ayúdanos a democratizar la inteligencia artificial.'
+                  : language === 'gl'
+                  ? 'Únete á nosa comunidade e axúdanos a democratizar a intelixencia artificial.'
+                  : 'Join our community and help us democratize artificial intelligence.'}
+              </p>
               <Button
                 size="lg"
                 onClick={() => window.open('https://forms.gle/5BxnQgzP6EwbzY2t9', '_blank')}
-                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-6 text-lg"
+                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 text-lg shadow-lg hover:shadow-xl transition-all"
               >
                 {language === 'es' ? '¿Te unes a nosotros?' : language === 'gl' ? 'Úneste a nós?' : 'Will you join us?'}
               </Button>
             </div>
           )}
 
-          <div className="mt-12 pt-8 border-t border-gray-200">
+          <div className="mt-16 pt-8 border-t border-gray-200 flex justify-between items-center">
             <Link href="/blog">
-              <Button>← {t.blog.allPosts}</Button>
+              <Button variant="outline" size="lg" className="shadow-sm hover:shadow-md transition-shadow">
+                ← {t.blog.allPosts}
+              </Button>
             </Link>
           </div>
         </article>

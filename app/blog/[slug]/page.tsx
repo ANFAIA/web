@@ -286,6 +286,13 @@ Este blog é a nosa ventá ao mundo. Aquí compartiremos avances, reflexións, �
   }
 ]
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  return <BlogPostClient slug={params.slug} blogPosts={blogPosts} />
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = await params
+  return <BlogPostClient slug={resolvedParams.slug} blogPosts={blogPosts} />
+}
+
+export async function generateStaticParams() {
+  return blogPosts.map((post) => ({
+    slug: post.slug,
+  }))
 }

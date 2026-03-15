@@ -20,6 +20,54 @@
   .text-balance {
     text-wrap: balance;
   }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0) translateX(0) scale(1);
+      opacity: 0.5;
+    }
+    25% {
+      transform: translateY(-30px) translateX(15px) scale(1.2);
+      opacity: 0.8;
+    }
+    50% {
+      transform: translateY(-60px) translateX(-15px) scale(1);
+      opacity: 1;
+    }
+    75% {
+      transform: translateY(-30px) translateX(15px) scale(1.1);
+      opacity: 0.8;
+    }
+  }
+
+  .animate-float {
+    animation: float ease-in-out infinite;
+    will-change: transform, opacity;
+    filter: blur(0.5px);
+  }
+
+  @keyframes connection {
+    0%, 100% {
+      opacity: 0;
+      stroke-dasharray: 0, 1000;
+    }
+    25% {
+      opacity: 0.4;
+      stroke-dasharray: 500, 1000;
+    }
+    50% {
+      opacity: 0.6;
+      stroke-dasharray: 1000, 0;
+    }
+    75% {
+      opacity: 0.4;
+      stroke-dasharray: 500, 1000;
+    }
+  }
+
+  .animate-connection {
+    animation: connection 8s ease-in-out infinite;
+  }
 }
 
 @layer base {

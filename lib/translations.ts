@@ -11,6 +11,7 @@ export interface Translations {
     becas: string;
     convocatoria2025: string;
     basesGenerales: string;
+    formularioAplicacion: string;
     blog: string;
   };
   
@@ -95,6 +96,16 @@ export interface Translations {
     readMore: string;
     allPosts: string;
   };
+
+  // Announcement
+  announcement: {
+    title: string;
+    subtitle: string;
+    dateLabel: string;
+    dateRange: string;
+    description: string;
+    button: string;
+  };
 }
 
 export const translations: Record<Language, Translations> = {
@@ -104,8 +115,9 @@ export const translations: Record<Language, Translations> = {
       programa: 'Programa',
       etica: 'Ética',
       becas: 'Becas',
-      convocatoria2025: 'Convocatoria 2025',
+      convocatoria2025: 'Convocatoria 2026',
       basesGenerales: 'Bases Generales',
+      formularioAplicacion: 'Formulario de solicitud',
       blog: 'Blog'
     },
     hero: {
@@ -140,9 +152,9 @@ export const translations: Record<Language, Translations> = {
       }
     },
     scholarship: {
-      title: 'Becas de Verano ANFAIA 2025',
-      description: 'El plazo de inscripción para las Becas de Verano ANFAIA 2025 ha cerrado oficialmente el 31 de marzo de 2025. Ahora, los seleccionados participarán en este programa durante el verano, trabajando en proyectos innovadores de inteligencia artificial, contribuyendo al desarrollo de tecnología de vanguardia y al ecosistema open source.',
-      githubText: 'Explora nuestros proyectos de código abierto y contribuye al desarrollo de IA ética:',
+      title: 'Proyectos open source de la edición 2025',
+      description: 'Descubre los proyectos desarrollados en la edición anterior de las Becas de Verano ANFAIA y explora el trabajo realizado por los participantes en nuestro ecosistema open source.',
+      githubText: '',
       githubButton: 'Ver Proyectos en GitHub'
     },
     youtube: {
@@ -179,6 +191,14 @@ export const translations: Record<Language, Translations> = {
       latestPost: 'Última Entrada del Blog',
       readMore: 'Leer más',
       allPosts: 'Ver todas las entradas'
+    },
+    announcement: {
+      title: 'Becas de Verano ANFAIA 2026',
+      subtitle: '',
+      dateLabel: 'Plazo de inscripción',
+      dateRange: 'Del 15 de marzo al 20 de abril',
+      description: 'Durante el verano los participantes desarrollarán proyectos de inteligencia artificial en diferentes ámbitos, publicando los resultados como software de código abierto.',
+      button: 'Completar solicitud'
     }
   },
   
@@ -188,8 +208,9 @@ export const translations: Record<Language, Translations> = {
       programa: 'Program',
       etica: 'Ethics',
       becas: 'Scholarships',
-      convocatoria2025: '2025 Call',
+      convocatoria2025: '2026 Call',
       basesGenerales: 'General Guidelines',
+      formularioAplicacion: 'Application Form',
       blog: 'Blog'
     },
     hero: {
@@ -224,9 +245,9 @@ export const translations: Record<Language, Translations> = {
       }
     },
     scholarship: {
-      title: 'ANFAIA Summer Scholarships 2025',
-      description: 'The registration deadline for ANFAIA Summer Scholarships 2025 has officially closed on March 31, 2025. Now, the selected participants will participate in this program during the summer, working on innovative artificial intelligence projects, contributing to cutting-edge technology development and the open source ecosystem.',
-      githubText: 'Explore our open source projects and contribute to ethical AI development:',
+      title: 'Open Source Projects from the 2025 Edition',
+      description: 'Discover the projects developed in the previous edition of ANFAIA Summer Scholarships and explore the work done by participants in our open source ecosystem.',
+      githubText: '',
       githubButton: 'View GitHub Projects'
     },
     youtube: {
@@ -263,6 +284,14 @@ export const translations: Record<Language, Translations> = {
       latestPost: 'Latest Blog Post',
       readMore: 'Read more',
       allPosts: 'View all posts'
+    },
+    announcement: {
+      title: 'ANFAIA Summer Scholarships 2026',
+      subtitle: '',
+      dateLabel: 'Registration period',
+      dateRange: 'From March 15 to April 20',
+      description: 'During the summer, participants will develop artificial intelligence projects in different fields, publishing the results as open source software.',
+      button: 'Complete application'
     }
   },
   
@@ -272,8 +301,9 @@ export const translations: Record<Language, Translations> = {
       programa: 'Programa',
       etica: 'Ética',
       becas: 'Bolsas',
-      convocatoria2025: 'Convocatoria 2025',
+      convocatoria2025: 'Convocatoria 2026',
       basesGenerales: 'Bases Xerais',
+      formularioAplicacion: 'Formulario de solicitude',
       blog: 'Blog'
     },
     hero: {
@@ -308,9 +338,9 @@ export const translations: Record<Language, Translations> = {
       }
     },
     scholarship: {
-      title: 'Bolsas de Verán ANFAIA 2025',
-      description: 'O prazo de inscrición para as Bolsas de Verán ANFAIA 2025 pechouse oficialmente o 31 de marzo de 2025. Agora, os seleccionados participarán neste programa durante o verán, traballando en proxectos innovadores de intelixencia artificial, contribuíndo ao desenvolvemento de tecnoloxía de vangarda e ao ecosistema open source.',
-      githubText: 'Explora os nosos proxectos de código aberto e contribúe ao desenvolvemento de IA ética:',
+      title: 'Proxectos open source da edición 2025',
+      description: 'Descobre os proxectos desenvolvidos na edición anterior das Bolsas de Verán ANFAIA e explora o traballo realizado polos participantes no noso ecosistema open source.',
+      githubText: '',
       githubButton: 'Ver Proxectos en GitHub'
     },
     youtube: {
@@ -347,6 +377,14 @@ export const translations: Record<Language, Translations> = {
       latestPost: 'Última Entrada do Blog',
       readMore: 'Ler máis',
       allPosts: 'Ver todas as entradas'
+    },
+    announcement: {
+      title: 'Bolsas de Verán ANFAIA 2026',
+      subtitle: '',
+      dateLabel: 'Prazo de inscrición',
+      dateRange: 'Do 15 de marzo ao 20 de abril',
+      description: 'Durante o verán os participantes desenvolverán proxectos de intelixencia artificial en diferentes ámbitos, publicando os resultados como software de código aberto.',
+      button: 'Completar solicitude'
     }
   }
 };

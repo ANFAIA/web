@@ -285,7 +285,7 @@ Este blog é a nosa ventá ao mundo. Aquí compartiremos avances, reflexións, �
 ]
 
 type PageProps = {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 export function generateStaticParams() {
@@ -294,6 +294,7 @@ export function generateStaticParams() {
   }))
 }
 
-export default function BlogPostPage({ params }: PageProps) {
-  return <BlogPostClient slug={params.slug} blogPosts={blogPosts} />
+export default async function BlogPostPage({ params }: PageProps) {
+  const { slug } = await params
+  return <BlogPostClient slug={slug} blogPosts={blogPosts} />
 }

@@ -16,10 +16,15 @@ export function Page() {
   const [email, setEmail] = useState('')
   const [activeSection, setActiveSection] = useState('')
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const [particles, setParticles] = useState<Array<{left: number, top: number, size: number, animationDelay: number, animationDuration: number}>>([])
+  const [starPoints, setStarPoints] = useState<Array<{x: number, y: number, r: number, opacity: number}>>([])
+  const [connections, setConnections] = useState<Array<{x1: number, y1: number, x2: number, y2: number, delay: number}>>([])
+  const [isMounted, setIsMounted] = useState(false)
 
   const becasLinks = [
-    { name: t.nav.convocatoria2025, href: 'https://docs.google.com/document/d/e/2PACX-1vSuT7Mb9YqG9bywfEwXlF1uznTJfb5EwGj-dJv3DI1aYao-ffYHUDRln3wntacOcRDnI7dGnOpX8y0o/pub' },
+    { name: t.nav.formularioAplicacion, href: 'https://docs.google.com/forms/d/e/1FAIpQLSdQ5DJ5ptdQkzdevJ2zvbI0PcWRzMomkTHfGAd09Pza5vX_Ng/viewform?usp=header' },
+    { name: t.nav.convocatoria2025, href: 'https://docs.google.com/document/d/e/2PACX-1vR7SoZ4xZszy3oqNRxorgQvcMy1SSeUgLh0QTyD4zcPW8ikKrIj8BF0ysWPGFozPOt6qrtJb-EejRSd/pub' },
     { name: t.nav.basesGenerales, href: 'https://docs.google.com/document/d/e/2PACX-1vTTYdJO1w3Nzb4tP7lbkhs1UecyrDNPIZhJ9wKc4WYlrXDv4lGE2uZYtugKYDC6S9uQeh4tHF06_ZEf/pub' }
   ];
 
@@ -40,6 +45,62 @@ export function Page() {
 
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  // Generate particles on client-side only to avoid hydration mismatch
+  useEffect(() => {
+    setIsMounted(true)
+
+    // Generate floating particles
+    const generatedParticles = [...Array(40)].map((_, i) => {
+      const edge = i % 4
+      let left, top
+
+      if (edge === 0) { // Left edge
+        left = Math.random() * 15
+        top = Math.random() * 100
+      } else if (edge === 1) { // Right edge
+        left = 85 + Math.random() * 15
+        top = Math.random() * 100
+      } else if (edge === 2) { // Top edge
+        left = Math.random() * 100
+        top = Math.random() * 15
+      } else { // Bottom edge
+        left = Math.random() * 100
+        top = 85 + Math.random() * 15
+      }
+
+      return {
+        left,
+        top,
+        size: 1.5 + Math.random() * 3.5,
+        animationDelay: Math.random() * 8,
+        animationDuration: 8 + Math.random() * 12
+      }
+    })
+    setParticles(generatedParticles)
+
+    // Generate star points
+    const points = [...Array(12)].map(() => ({
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      r: Math.random() * 2 + 1,
+      opacity: 0.5 + Math.random() * 0.3
+    }))
+    setStarPoints(points)
+
+    // Generate connections
+    const generatedConnections = points.slice(0, 6).map((point, i) => {
+      const nextPoint = points[(i + 2 + Math.floor(Math.random() * 3)) % points.length]
+      return {
+        x1: point.x,
+        y1: point.y,
+        x2: nextPoint.x,
+        y2: nextPoint.y,
+        delay: i * 2
+      }
+    })
+    setConnections(generatedConnections)
   }, [])
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -230,26 +291,121 @@ export function Page() {
               <h1 className="text-4xl md:text-6xl font-bold mb-8 leading-tight pb-2">
                 {t.hero.title}
               </h1>
-              <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-12 leading-relaxed">
+              <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
                 {t.hero.description}
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Button
-                  size="lg"
-                  onClick={() => window.open('https://forms.gle/5BxnQgzP6EwbzY2t9', '_blank')}
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-lg shadow-lg hover:shadow-xl transition-all"
-                >
-                  {t.newsletter.button}
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  onClick={() => document.getElementById('programa')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="px-8 py-6 text-lg border-2 hover:bg-gray-50"
-                >
-                  {t.nav.programa}
-                </Button>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Announcement Section */}
+        <section className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 relative overflow-hidden">
+          {/* Particles Background Effect - Milky Way Style */}
+          <div className="absolute inset-0 overflow-hidden opacity-55">
+            {/* Ambient glow effects on edges - stronger */}
+            <div className="absolute w-[500px] h-[500px] bg-blue-400/15 rounded-full blur-[120px] -top-32 -left-32"></div>
+            <div className="absolute w-[400px] h-[400px] bg-indigo-400/15 rounded-full blur-[120px] -bottom-32 -right-32"></div>
+
+            {/* Milky Way glow effect */}
+            <div className="absolute inset-0">
+              <div className="absolute w-full h-2 bg-gradient-to-r from-transparent via-white/5 to-transparent top-1/4 blur-xl"></div>
+              <div className="absolute w-full h-3 bg-gradient-to-r from-transparent via-blue-200/8 to-transparent top-1/3 blur-2xl"></div>
+              <div className="absolute w-full h-2 bg-gradient-to-r from-transparent via-white/5 to-transparent bottom-1/3 blur-xl"></div>
+            </div>
+
+            {/* Elegant floating particles concentrated on edges */}
+            {isMounted && particles.map((particle, i) => (
+              <div
+                key={i}
+                className="absolute rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.6)] animate-float"
+                style={{
+                  left: `${particle.left}%`,
+                  top: `${particle.top}%`,
+                  width: `${particle.size}px`,
+                  height: `${particle.size}px`,
+                  animationDelay: `${particle.animationDelay}s`,
+                  animationDuration: `${particle.animationDuration}s`
+                }}
+              />
+            ))}
+
+            {/* Dynamic particle network - sparse connections */}
+            {isMounted && (
+              <svg className="absolute inset-0 w-full h-full opacity-20" id="particle-network">
+                <defs>
+                  <radialGradient id="starGlow">
+                    <stop offset="0%" stopColor="white" stopOpacity="0.8" />
+                    <stop offset="100%" stopColor="white" stopOpacity="0" />
+                  </radialGradient>
+                </defs>
+                {/* Star points */}
+                {starPoints.map((point, i) => (
+                  <circle
+                    key={`star-${i}`}
+                    cx={`${point.x}%`}
+                    cy={`${point.y}%`}
+                    r={point.r}
+                    fill="url(#starGlow)"
+                    opacity={point.opacity}
+                  />
+                ))}
+                {/* Sparse connecting lines */}
+                {connections.map((conn, i) => (
+                  <line
+                    key={`line-${i}`}
+                    x1={`${conn.x1}%`}
+                    y1={`${conn.y1}%`}
+                    x2={`${conn.x2}%`}
+                    y2={`${conn.y2}%`}
+                    stroke="white"
+                    strokeWidth="0.5"
+                    opacity="0"
+                    className="animate-connection"
+                    style={{
+                      animationDelay: `${conn.delay}s`,
+                    }}
+                  />
+                ))}
+              </svg>
+            )}
+          </div>
+          <div className="container mx-auto px-4 relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="max-w-4xl mx-auto text-center text-white"
+            >
+              <div className="inline-block mb-6">
+                <div className="h-1 w-20 bg-white rounded-full mx-auto mb-6"></div>
               </div>
+              <h2 className="text-3xl md:text-5xl font-bold mb-8 leading-tight relative">
+                <span className="relative bg-gradient-to-r from-white via-blue-50 to-white bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(147,197,253,0.5)]">
+                  {t.announcement.title}
+                </span>
+              </h2>
+
+              {/* Date prominently displayed */}
+              <div className="mb-10">
+                <p className="text-lg md:text-xl text-blue-100 mb-3 font-semibold">
+                  {t.announcement.dateLabel}
+                </p>
+                <p className="text-3xl md:text-4xl font-bold text-white">
+                  {t.announcement.dateRange}
+                </p>
+              </div>
+
+              <p className="text-lg md:text-xl text-blue-50 mb-10 leading-relaxed max-w-3xl mx-auto">
+                {t.announcement.description}
+              </p>
+
+              <Button
+                size="lg"
+                onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLSdQ5DJ5ptdQkzdevJ2zvbI0PcWRzMomkTHfGAd09Pza5vX_Ng/viewform?usp=header', '_blank')}
+                className="bg-white text-blue-600 hover:bg-blue-50 px-10 py-7 text-xl shadow-lg font-semibold"
+              >
+                {t.announcement.button}
+              </Button>
             </motion.div>
           </div>
         </section>
@@ -369,7 +525,7 @@ export function Page() {
                   </p>
                   <Button
                     size="lg"
-                    onClick={() => (window.location.href = '/blog/clausura-becas-verano-2025')}
+                    onClick={() => window.open('/blog/clausura-becas-verano-2025', '_blank')}
                     className="w-full bg-blue-600 hover:bg-blue-700"
                   >
                     {t.blog.readMore} →

@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(convert app/favicon.ico -define png:color-type=6 PNG32:-)",
+      "Bash(convert - app/favicon.ico)",
+      "Bash(npm run build)",
+      "Bash(npm run dev)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

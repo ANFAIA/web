@@ -195,8 +195,8 @@ export const translations: Record<Language, Translations> = {
     announcement: {
       title: 'Becas de Verano ANFAIA 2026',
       subtitle: '',
-      dateLabel: 'Plazo de inscripción',
-      dateRange: 'Del 15 de marzo al 20 de abril',
+      dateLabel: 'Plazo de inscripción ampliado',
+      dateRange: 'Del 15 de marzo al 30 de abril',
       description: 'Durante el verano los participantes desarrollarán proyectos de inteligencia artificial en diferentes ámbitos, publicando los resultados como software de código abierto.',
       button: 'Completar solicitud'
     }
@@ -288,8 +288,8 @@ export const translations: Record<Language, Translations> = {
     announcement: {
       title: 'ANFAIA Summer Scholarships 2026',
       subtitle: '',
-      dateLabel: 'Registration period',
-      dateRange: 'From March 15 to April 20',
+      dateLabel: 'Extended registration period',
+      dateRange: 'From March 15 to April 30',
       description: 'During the summer, participants will develop artificial intelligence projects in different fields, publishing the results as open source software.',
       button: 'Complete application'
     }
@@ -381,8 +381,8 @@ export const translations: Record<Language, Translations> = {
     announcement: {
       title: 'Bolsas de Verán ANFAIA 2026',
       subtitle: '',
-      dateLabel: 'Prazo de inscrición',
-      dateRange: 'Do 15 de marzo ao 20 de abril',
+      dateLabel: 'Prazo de inscrición ampliado',
+      dateRange: 'Do 15 de marzo ao 30 de abril',
       description: 'Durante o verán os participantes desenvolverán proxectos de intelixencia artificial en diferentes ámbitos, publicando os resultados como software de código aberto.',
       button: 'Completar solicitude'
     }

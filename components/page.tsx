@@ -23,7 +23,6 @@ export function Page() {
   const [isMounted, setIsMounted] = useState(false)
 
   const becasLinks = [
-    { name: t.nav.formularioAplicacion, href: 'https://docs.google.com/forms/d/e/1FAIpQLSdQ5DJ5ptdQkzdevJ2zvbI0PcWRzMomkTHfGAd09Pza5vX_Ng/viewform?usp=header' },
     { name: t.nav.convocatoria2025, href: 'https://docs.google.com/document/d/e/2PACX-1vR7SoZ4xZszy3oqNRxorgQvcMy1SSeUgLh0QTyD4zcPW8ikKrIj8BF0ysWPGFozPOt6qrtJb-EejRSd/pub' },
     { name: t.nav.basesGenerales, href: 'https://docs.google.com/document/d/e/2PACX-1vTTYdJO1w3Nzb4tP7lbkhs1UecyrDNPIZhJ9wKc4WYlrXDv4lGE2uZYtugKYDC6S9uQeh4tHF06_ZEf/pub' }
   ];
@@ -390,22 +389,17 @@ export function Page() {
                 <p className="text-lg md:text-xl text-blue-100 mb-3 font-semibold">
                   {t.announcement.dateLabel}
                 </p>
-                <p className="text-3xl md:text-4xl font-bold text-white">
-                  {t.announcement.dateRange}
-                </p>
+                {t.announcement.dateRange && (
+                  <p className="text-3xl md:text-4xl font-bold text-white">
+                    {t.announcement.dateRange}
+                  </p>
+                )}
               </div>
 
               <p className="text-lg md:text-xl text-blue-50 mb-10 leading-relaxed max-w-3xl mx-auto">
                 {t.announcement.description}
               </p>
 
-              <Button
-                size="lg"
-                onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLSdQ5DJ5ptdQkzdevJ2zvbI0PcWRzMomkTHfGAd09Pza5vX_Ng/viewform?usp=header', '_blank')}
-                className="bg-white text-blue-600 hover:bg-blue-50 px-10 py-7 text-xl shadow-lg font-semibold"
-              >
-                {t.announcement.button}
-              </Button>
             </motion.div>
           </div>
         </section>

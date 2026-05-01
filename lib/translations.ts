@@ -11,7 +11,6 @@ export interface Translations {
     becas: string;
     convocatoria2025: string;
     basesGenerales: string;
-    formularioAplicacion: string;
     blog: string;
   };
   
@@ -104,7 +103,6 @@ export interface Translations {
     dateLabel: string;
     dateRange: string;
     description: string;
-    button: string;
   };
 }
 
@@ -117,7 +115,6 @@ export const translations: Record<Language, Translations> = {
       becas: 'Becas',
       convocatoria2025: 'Convocatoria 2026',
       basesGenerales: 'Bases Generales',
-      formularioAplicacion: 'Formulario de solicitud',
       blog: 'Blog'
     },
     hero: {
@@ -195,10 +192,9 @@ export const translations: Record<Language, Translations> = {
     announcement: {
       title: 'Becas de Verano ANFAIA 2026',
       subtitle: '',
-      dateLabel: 'Plazo de inscripción ampliado',
-      dateRange: 'Del 15 de marzo al 30 de abril',
-      description: 'Durante el verano los participantes desarrollarán proyectos de inteligencia artificial en diferentes ámbitos, publicando los resultados como software de código abierto.',
-      button: 'Completar solicitud'
+      dateLabel: 'Plazo de inscripción cerrado',
+      dateRange: '',
+      description: 'Durante el verano los participantes desarrollarán proyectos de inteligencia artificial en diferentes ámbitos, publicando los resultados como software de código abierto.'
     }
   },
   
@@ -210,7 +206,6 @@ export const translations: Record<Language, Translations> = {
       becas: 'Scholarships',
       convocatoria2025: '2026 Call',
       basesGenerales: 'General Guidelines',
-      formularioAplicacion: 'Application Form',
       blog: 'Blog'
     },
     hero: {
@@ -288,10 +283,9 @@ export const translations: Record<Language, Translations> = {
     announcement: {
       title: 'ANFAIA Summer Scholarships 2026',
       subtitle: '',
-      dateLabel: 'Extended registration period',
-      dateRange: 'From March 15 to April 30',
-      description: 'During the summer, participants will develop artificial intelligence projects in different fields, publishing the results as open source software.',
-      button: 'Complete application'
+      dateLabel: 'Registration period closed',
+      dateRange: '',
+      description: 'During the summer, participants will develop artificial intelligence projects in different fields, publishing the results as open source software.'
     }
   },
   
@@ -303,7 +297,6 @@ export const translations: Record<Language, Translations> = {
       becas: 'Bolsas',
       convocatoria2025: 'Convocatoria 2026',
       basesGenerales: 'Bases Xerais',
-      formularioAplicacion: 'Formulario de solicitude',
       blog: 'Blog'
     },
     hero: {
@@ -381,10 +374,9 @@ export const translations: Record<Language, Translations> = {
     announcement: {
       title: 'Bolsas de Verán ANFAIA 2026',
       subtitle: '',
-      dateLabel: 'Prazo de inscrición ampliado',
-      dateRange: 'Do 15 de marzo ao 30 de abril',
-      description: 'Durante o verán os participantes desenvolverán proxectos de intelixencia artificial en diferentes ámbitos, publicando os resultados como software de código aberto.',
-      button: 'Completar solicitude'
+      dateLabel: 'Prazo de inscrición pechado',
+      dateRange: '',
+      description: 'Durante o verán os participantes desenvolverán proxectos de intelixencia artificial en diferentes ámbitos, publicando os resultados como software de código aberto.'
     }
   }
 };

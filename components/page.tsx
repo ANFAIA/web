@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog"
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown, Github, Youtube, Menu, X } from 'lucide-react'
 import { useTranslations } from '@/lib/translations'
 import { LanguageSwitcher } from '@/components/ui/language-switcher'
@@ -17,6 +17,7 @@ export function Page() {
   const [activeSection, setActiveSection] = useState('')
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
   const [particles, setParticles] = useState<Array<{left: number, top: number, size: number, animationDelay: number, animationDuration: number}>>([])
   const [starPoints, setStarPoints] = useState<Array<{x: number, y: number, r: number, opacity: number}>>([])
   const [connections, setConnections] = useState<Array<{x1: number, y1: number, x2: number, y2: number, delay: number}>>([])
@@ -29,6 +30,7 @@ export function Page() {
 
   useEffect(() => {
     const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0)
       const sections = ['inicio', 'programa', 'ética']
 
       const currentSection = sections.find(section => {
@@ -42,6 +44,7 @@ export function Page() {
       if (currentSection) setActiveSection(currentSection)
     }
 
+    handleScroll()
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
@@ -115,9 +118,9 @@ export function Page() {
 
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900">
-      <header className="bg-white shadow-md sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-6 flex justify-between items-center">
-          <img src="ANFAIA_logo_web.png" alt="ANFAIA Logo" className="w-40 h-auto" />
+      <header className="bg-white shadow-md sticky top-0 z-50 relative">
+        <div className={`container mx-auto px-4 flex justify-between items-center transition-all duration-300 ${isScrolled ? 'py-3' : 'py-6'}`}>
+          <img src="ANFAIA_logo_web.png" alt="ANFAIA Logo" className={`transition-all duration-300 ${isScrolled ? 'w-32' : 'w-40'} h-auto`} />
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-4">
@@ -149,7 +152,7 @@ export function Page() {
                 {/* Becas Dropdown */}
                 <li className="relative">
                   <button
-                    className="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors duration-200 flex items-center"
+                    className="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors duration-200 inline-flex items-center p-0"
                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                     onBlur={() => setTimeout(() => setIsDropdownOpen(false), 200)}
                   >
@@ -171,20 +174,28 @@ export function Page() {
                     </svg>
                   </button>
 
-                  {isDropdownOpen && (
-                    <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10">
-                      {becasLinks.map((link) => (
-                        <a
-                          key={link.name}
-                          href={link.href}
-                          target="_blank"
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-blue-600"
-                        >
-                          {link.name}
-                        </a>
-                      ))}
-                    </div>
-                  )}
+                  <AnimatePresence>
+                    {isDropdownOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -8 }}
+                        transition={{ duration: 0.15 }}
+                        className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10"
+                      >
+                        {becasLinks.map((link) => (
+                          <a
+                            key={link.name}
+                            href={link.href}
+                            target="_blank"
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-blue-600"
+                          >
+                            {link.name}
+                          </a>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </li>
               </ul>
             </nav>
@@ -203,75 +214,77 @@ export function Page() {
           </div>
         </div>
 
-        {/* Mobile Navigation Menu */}
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-t border-gray-200"
-          >
-            <nav className="container mx-auto px-4 py-4">
-              <ul className="space-y-4">
-                {[
-                  { key: 'inicio', label: t.nav.inicio, href: '#inicio' },
-                  { key: 'programa', label: t.nav.programa, href: '#programa' },
-                  { key: 'ética', label: t.nav.etica, href: '#ética' }
-                ].map((item) => (
-                  <li key={item.key}>
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+              className="md:hidden absolute top-full left-0 right-0 z-50 backdrop-blur-md bg-white/90 shadow-lg"
+            >
+              <nav className="container mx-auto px-4 py-4">
+                <ul className="space-y-4">
+                  {[
+                    { key: 'inicio', label: t.nav.inicio, href: '#inicio' },
+                    { key: 'programa', label: t.nav.programa, href: '#programa' },
+                    { key: 'ética', label: t.nav.etica, href: '#ética' }
+                  ].map((item) => (
+                    <li key={item.key}>
+                      <a
+                        href={item.href}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className={`block text-base font-medium transition-colors duration-200 ${activeSection === item.key ? 'text-blue-600' : 'text-gray-600 hover:text-blue-600'}`}
+                      >
+                        {item.label}
+                      </a>
+                    </li>
+                  ))}
+                  <li>
                     <a
-                      href={item.href}
+                      href="/blog"
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className={`block text-base font-medium transition-colors duration-200 ${activeSection === item.key ? 'text-blue-600' : 'text-gray-600 hover:text-blue-600'}`}
+                      className="block text-base font-medium transition-colors duration-200 text-gray-600 hover:text-blue-600"
                     >
-                      {item.label}
+                      {t.nav.blog}
                     </a>
                   </li>
-                ))}
-                <li>
-                  <a
-                    href="/blog"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="block text-base font-medium transition-colors duration-200 text-gray-600 hover:text-blue-600"
-                  >
-                    {t.nav.blog}
-                  </a>
-                </li>
 
-                {/* Mobile Becas Links */}
-                <li>
-                  <button
-                    className="w-full text-left text-base font-medium text-gray-600 hover:text-blue-600 transition-colors duration-200 flex items-center justify-between"
-                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                  >
-                    {t.nav.becas}
-                    <ChevronDown
-                      className={`h-4 w-4 transition-transform duration-200 ${
-                        isDropdownOpen ? 'rotate-180' : ''
-                      }`}
-                    />
-                  </button>
-                  {isDropdownOpen && (
-                    <ul className="mt-2 ml-4 space-y-2">
-                      {becasLinks.map((link) => (
-                        <li key={link.name}>
-                          <a
-                            href={link.href}
-                            target="_blank"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                            className="block text-sm text-gray-600 hover:text-blue-600"
-                          >
-                            {link.name}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </li>
-              </ul>
-            </nav>
-          </motion.div>
-        )}
+                  {/* Mobile Becas Links */}
+                  <li>
+                    <button
+                      className="w-full text-left text-base font-medium text-gray-600 hover:text-blue-600 transition-colors duration-200 flex items-center justify-between"
+                      onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                    >
+                      {t.nav.becas}
+                      <ChevronDown
+                        className={`h-4 w-4 transition-transform duration-200 ${
+                          isDropdownOpen ? 'rotate-180' : ''
+                        }`}
+                      />
+                    </button>
+                    {isDropdownOpen && (
+                      <ul className="mt-2 ml-4 space-y-2">
+                        {becasLinks.map((link) => (
+                          <li key={link.name}>
+                            <a
+                              href={link.href}
+                              target="_blank"
+                              onClick={() => setIsMobileMenuOpen(false)}
+                              className="block text-sm text-gray-600 hover:text-blue-600"
+                            >
+                              {link.name}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </li>
+                </ul>
+              </nav>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </header>
 
       <main>

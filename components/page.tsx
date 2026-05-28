@@ -530,10 +530,10 @@ export function Page() {
           </div>
         </section>
 
-        {/* YouTube & Newsletter Section */}
+        {/* YouTube, Discord & Newsletter Section */}
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
               {/* YouTube Card */}
               <Card className="bg-gradient-to-br from-red-500 to-red-600 text-white border-0 shadow-xl hover:shadow-2xl transition-shadow">
                 <CardContent className="text-center py-12 px-8">
@@ -547,6 +547,24 @@ export function Page() {
                   >
                     <Youtube className="mr-2 h-5 w-5" />
                     {t.youtube.button}
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* Discord Card */}
+              <Card className="bg-gradient-to-br from-indigo-500 to-indigo-700 text-white border-0 shadow-xl hover:shadow-2xl transition-shadow">
+                <CardContent className="text-center py-12 px-8">
+                  <svg className="w-16 h-16 mx-auto mb-6 opacity-90" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M20.317 4.369A19.791 19.791 0 0 0 16.558 3c-.18.32-.39.755-.534 1.097a18.27 18.27 0 0 0-5.487 0A12.683 12.683 0 0 0 9.997 3 19.736 19.736 0 0 0 6.235 4.37C2.91 9.046 2 13.6 2.42 18.084a19.94 19.94 0 0 0 6.073 3.058c.49-.668.927-1.378 1.302-2.125a12.94 12.94 0 0 1-2.05-.978c.172-.127.34-.26.502-.397 3.957 1.826 8.232 1.826 12.144 0 .164.137.332.27.503.397-.654.392-1.343.722-2.053.978.375.747.811 1.456 1.302 2.125a19.927 19.927 0 0 0 6.073-3.058c.5-5.197-.838-9.712-3.499-13.715ZM9.34 15.331c-1.182 0-2.155-1.085-2.155-2.419 0-1.333.949-2.419 2.155-2.419 1.205 0 2.178 1.086 2.155 2.42 0 1.333-.95 2.418-2.155 2.418Zm5.32 0c-1.182 0-2.155-1.085-2.155-2.419 0-1.333.95-2.419 2.155-2.419 1.206 0 2.178 1.086 2.156 2.42 0 1.333-.95 2.418-2.156 2.418Z"/>
+                  </svg>
+                  <h3 className="text-3xl font-bold mb-4">{t.discord.title}</h3>
+                  <p className="text-xl text-indigo-50 mb-8 leading-relaxed">{t.discord.description}</p>
+                  <Button
+                    size="lg"
+                    onClick={() => window.open('https://discord.gg/wGCsq88vwZ', '_blank')}
+                    className="bg-white text-indigo-700 hover:bg-indigo-50 px-8 py-6 text-lg shadow-lg font-semibold"
+                  >
+                    {t.discord.button}
                   </Button>
                 </CardContent>
               </Card>

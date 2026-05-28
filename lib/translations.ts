@@ -70,6 +70,13 @@ export interface Translations {
     description: string;
     button: string;
   };
+
+  // Discord section
+  discord: {
+    title: string;
+    description: string;
+    button: string;
+  };
   
   // Ethics section
   ethics: {
@@ -164,6 +171,11 @@ export const translations: Record<Language, Translations> = {
       description: '¿Quieres recibir información sobre nuestras actividades? Déjanos tus datos para mantenerte al tanto de lo que sucede:',
       button: 'Únete a nuestra lista'
     },
+    discord: {
+      title: 'Únete a la Comunidad',
+      description: 'Conecta con otros miembros de ANFAIA, participa en debates sobre IA y mantente al día en nuestro servidor de Discord:',
+      button: 'Unirse a Discord'
+    },
     ethics: {
       title: 'Nuestro Compromiso Ético',
       description: 'En ANFAIA, creemos firmemente que el desarrollo y la implementación de la Inteligencia Artificial deben estar guiados por sólidos principios éticos. Nos comprometemos a:',
@@ -255,6 +267,11 @@ export const translations: Record<Language, Translations> = {
       description: 'Want to receive information about our activities? Leave us your details to stay up to date with what\'s happening:',
       button: 'Join our list'
     },
+    discord: {
+      title: 'Join the Community',
+      description: 'Connect with other ANFAIA members, take part in AI discussions, and stay up to date on our Discord server:',
+      button: 'Join Discord'
+    },
     ethics: {
       title: 'Our Ethical Commitment',
       description: 'At ANFAIA, we firmly believe that the development and implementation of Artificial Intelligence must be guided by solid ethical principles. We commit to:',
@@ -345,6 +362,11 @@ export const translations: Record<Language, Translations> = {
       title: 'Mantente Informado',
       description: 'Queres recibir información sobre as nosas actividades? Déixanos os teus datos para manterte ao tanto do que sucede:',
       button: 'Únete á nosa lista'
+    },
+    discord: {
+      title: 'Únete á Comunidade',
+      description: 'Conecta con outros membros de ANFAIA, participa en debates sobre IA e mantente ao día no noso servidor de Discord:',
+      button: 'Unirse a Discord'
     },
     ethics: {
       title: 'O noso Compromiso Ético',

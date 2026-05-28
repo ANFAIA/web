@@ -1,0 +1,29 @@
+components/page.tsx
+  s_76b2c25a2728d8::t_25c2087bb48bac 47
+  s_76b2c25a2728d8::t_2128f8adc0a6a5 177-198
+  s_76b2c25a2728d8::t_cae9cb4278cc0d 155
+  s_76b2c25a2728d8::t_bb814d91a6e7e8 33
+  s_76b2c25a2728d8::t_7aa469280abb03 8
+  s_76b2c25a2728d8::t_7c882dd359f8e5 121-123
+  s_76b2c25a2728d8::t_12f9002a86f613 20
+  s_76b2c25a2728d8::t_a1eedb52e9a078 217-243,245,247,249,253-287
+components/ui/language-switcher.tsx
+  s_76b2c25a2728d8::t_af28a7743523a7 4
+  s_76b2c25a2728d8::t_d3ab20c4ba092a 83-106
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "492d9743db76510d3e8a29fa0a928e6ddd5fdcb7",
+  "prompts": {},
+  "sessions": {
+    "s_76b2c25a2728d8": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_190adb71affeusbv5vqgjoBwHL",
+        "model": "deepseek-v4-flash-free"
+      },
+      "human_author": "Sergio Carracedo <hi@sergiocarracedo.es>"
+    }
+  }
+}

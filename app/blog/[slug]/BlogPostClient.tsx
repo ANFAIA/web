@@ -175,6 +175,27 @@ export default function BlogPostClient({ slug, blogPosts }: { slug: string, blog
               <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight drop-shadow-lg">
                 {post.title[language]}
               </h1>
+              {post.slug === 'un-escarpado-maravilloso-viaje-verano-parte-1' && (
+                <div className="mt-5 flex flex-wrap items-center gap-3 text-base font-semibold text-white/95">
+                  <a
+                    href="https://es.linkedin.com/in/carolina-tomas-franco/en"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline decoration-white/60 underline-offset-4 hover:text-blue-100 hover:decoration-blue-100 transition-colors"
+                  >
+                    Carolina Tomas
+                  </a>
+                  <span className="text-white/70">·</span>
+                  <a
+                    href="https://github.com/ANFAIA/IA4Edu"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline decoration-white/60 underline-offset-4 hover:text-blue-100 hover:decoration-blue-100 transition-colors"
+                  >
+                    ANFAIA/IA4Edu
+                  </a>
+                </div>
+              )}
             </div>
           </div>
         </div>

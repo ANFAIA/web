@@ -11,6 +11,21 @@ import Link from 'next/link'
 // Blog posts data - you can move this to a separate file or database later
 const blogPosts = [
   {
+    slug: 'un-escarpado-maravilloso-viaje-verano-parte-1',
+    title: {
+      es: 'Un escarpado y maravilloso viaje de verano. Parte 1',
+      en: 'A Steep and Wonderful Summer Journey. Part 1',
+      gl: 'Unha escarpada e marabillosa viaxe de verán. Parte 1'
+    },
+    summary: {
+      es: 'Carolina Tomas comparte el inicio de su experiencia con la beca ANFAIA: una idea educativa ambiciosa, el aterrizaje en el briefing y el aprendizaje de reducir para construir algo funcional.',
+      en: 'Carolina Tomas shares the beginning of her ANFAIA scholarship experience: an ambitious educational idea, the landing into the briefing, and the lesson of reducing scope to build something functional.',
+      gl: 'Carolina Tomas comparte o inicio da súa experiencia coa bolsa ANFAIA: unha idea educativa ambiciosa, a aterraxe no briefing e a aprendizaxe de reducir para construír algo funcional.'
+    },
+    image: '/blog/images/summer-journey-part-1.jpg',
+    date: '2026-05-29'
+  },
+  {
     slug: 'clausura-becas-verano-2025',
     title: {
       es: 'Clausura de las Becas de Verano ANFAIA 2025: jóvenes investigadores impulsan proyectos de IA con impacto social',

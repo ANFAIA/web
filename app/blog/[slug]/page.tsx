@@ -1,7 +1,31 @@
 import BlogPostClient from './BlogPostClient'
+import { readFileSync } from 'fs'
+import path from 'path'
+
+const loadMarkdownContent = (id: string) => ({
+  es: readFileSync(path.join(process.cwd(), 'app', 'blog', `${id}.es.md`), 'utf8').trim(),
+  en: readFileSync(path.join(process.cwd(), 'app', 'blog', `${id}.en.md`), 'utf8').trim(),
+  gl: readFileSync(path.join(process.cwd(), 'app', 'blog', `${id}.gl.md`), 'utf8').trim()
+})
 
 // Blog posts data - should match the data in blog/page.tsx
 const blogPosts = [
+  {
+    slug: 'un-escarpado-maravilloso-viaje-verano-parte-1',
+    title: {
+      es: 'Un escarpado y maravilloso viaje de verano. Parte 1',
+      en: 'A Steep and Wonderful Summer Journey. Part 1',
+      gl: 'Unha escarpada e marabillosa viaxe de verán. Parte 1'
+    },
+    summary: {
+      es: 'Carolina Tomas comparte el inicio de su experiencia con la beca ANFAIA: una idea educativa ambiciosa, el aterrizaje en el briefing y el aprendizaje de reducir para construir algo funcional.',
+      en: 'Carolina Tomas shares the beginning of her ANFAIA scholarship experience: an ambitious educational idea, the landing into the briefing, and the lesson of reducing scope to build something functional.',
+      gl: 'Carolina Tomas comparte o inicio da súa experiencia coa bolsa ANFAIA: unha idea educativa ambiciosa, a aterraxe no briefing e a aprendizaxe de reducir para construír algo funcional.'
+    },
+    content: loadMarkdownContent('2'),
+    image: '/blog/images/summer-journey-part-1.jpg',
+    date: '2026-05-29'
+  },
   {
     slug: 'clausura-becas-verano-2025',
     title: {

@@ -71,6 +71,13 @@ export interface Translations {
     button: string;
   };
 
+  // Read Newsletter section
+  readNewsletter: {
+    title: string;
+    description: string;
+    button: string;
+  };
+
   // Discord section
   discord: {
     title: string;
@@ -171,6 +178,11 @@ export const translations: Record<Language, Translations> = {
       description: '¿Quieres recibir información sobre nuestras actividades? Déjanos tus datos para mantenerte al tanto de lo que sucede:',
       button: 'Únete a nuestra lista'
     },
+    readNewsletter: {
+      title: 'Newsletter de Noticias sobre IA',
+      description: 'Mantente al día con la actualidad de la inteligencia artificial. Lee nuestra newsletter de noticias sobre IA, sin necesidad de suscribirte:',
+      button: 'Leer newsletter'
+    },
     discord: {
       title: 'Únete a la Comunidad',
       description: 'Conecta con otros miembros de ANFAIA, participa en debates sobre IA y mantente al día en nuestro servidor de Discord:',
@@ -267,6 +279,11 @@ export const translations: Record<Language, Translations> = {
       description: 'Want to receive information about our activities? Leave us your details to stay up to date with what\'s happening:',
       button: 'Join our list'
     },
+    readNewsletter: {
+      title: 'AI News Newsletter',
+      description: 'Stay up to date with the latest in artificial intelligence. Read our AI news newsletter, no subscription needed:',
+      button: 'Read newsletter'
+    },
     discord: {
       title: 'Join the Community',
       description: 'Connect with other ANFAIA members, take part in AI discussions, and stay up to date on our Discord server:',
@@ -362,6 +379,11 @@ export const translations: Record<Language, Translations> = {
       title: 'Mantente Informado',
       description: 'Queres recibir información sobre as nosas actividades? Déixanos os teus datos para manterte ao tanto do que sucede:',
       button: 'Únete á nosa lista'
+    },
+    readNewsletter: {
+      title: 'Newsletter de Noticias sobre IA',
+      description: 'Mantente ao día coa actualidade da intelixencia artificial. Le a nosa newsletter de noticias sobre IA, sen necesidade de subscribirte:',
+      button: 'Ler newsletter'
     },
     discord: {
       title: 'Únete á Comunidade',

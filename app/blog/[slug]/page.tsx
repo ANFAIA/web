@@ -11,6 +11,22 @@ const loadMarkdownContent = (id: string) => ({
 // Blog posts data - should match the data in blog/page.tsx
 const blogPosts = [
   {
+    slug: 'un-escarpado-maravilloso-viaje-verano-parte-2',
+    title: {
+      es: 'Un escarpado y maravilloso viaje de verano. Parte 2',
+      en: 'A Steep and Wonderful Summer Journey. Part 2',
+      gl: 'Unha escarpada e marabillosa viaxe de verán. Parte 2'
+    },
+    summary: {
+      es: 'Carolina Tomas continúa su viaje de verano entre pivotes técnicos, sistemas de agentes, modelos locales y el aprendizaje de volver a mirar los mapas cuando el camino cambia.',
+      en: 'Carolina Tomas continues her summer journey through technical pivots, agent systems, local models, and the lesson of looking back at the maps when the route changes.',
+      gl: 'Carolina Tomas continúa a súa viaxe de verán entre pivotes técnicos, sistemas de axentes, modelos locais e a aprendizaxe de volver mirar os mapas cando o camiño cambia.'
+    },
+    content: loadMarkdownContent('3'),
+    image: '/blog/images/summer-journey-part-2.jpg',
+    date: '2026-06-11'
+  },
+  {
     slug: 'un-escarpado-maravilloso-viaje-verano-parte-1',
     title: {
       es: 'Un escarpado y maravilloso viaje de verano. Parte 1',

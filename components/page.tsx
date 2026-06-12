@@ -606,6 +606,30 @@ export function Page() {
           </div>
         </section>
 
+        {/* Read Newsletter Section */}
+        <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+          <div className="container mx-auto px-4">
+            <Card className="bg-gradient-to-br from-amber-500 to-orange-600 text-white border-0 shadow-xl max-w-5xl mx-auto">
+              <CardContent className="text-center py-14 px-8">
+                <div className="w-16 h-16 mx-auto mb-6 bg-white/20 rounded-full flex items-center justify-center">
+                  <svg className="w-10 h-10" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+                  </svg>
+                </div>
+                <h3 className="text-3xl font-bold mb-4">{t.readNewsletter.title}</h3>
+                <p className="text-xl text-orange-50 mb-8 leading-relaxed max-w-2xl mx-auto">{t.readNewsletter.description}</p>
+                <Button
+                  size="lg"
+                  onClick={() => window.open('https://anfaia.github.io/newsletter/index.html', '_blank')}
+                  className="bg-white text-orange-600 hover:bg-orange-50 px-8 py-6 text-lg shadow-lg font-semibold"
+                >
+                  {t.readNewsletter.button}
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
         {/* Ethics Section */}
         <section id="ética" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
           <div className="container mx-auto px-4">

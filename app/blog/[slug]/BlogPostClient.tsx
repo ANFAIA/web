@@ -175,7 +175,7 @@ export default function BlogPostClient({ slug, blogPosts }: { slug: string, blog
               <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight drop-shadow-lg">
                 {post.title[language]}
               </h1>
-              {(post.slug === 'un-escarpado-maravilloso-viaje-verano-parte-1' || post.slug === 'un-escarpado-maravilloso-viaje-verano-parte-2') && (
+              {(post.slug === 'un-escarpado-maravilloso-viaje-verano-parte-1' || post.slug === 'un-escarpado-maravilloso-viaje-verano-parte-2' || post.slug === 'un-escarpado-maravilloso-viaje-verano-parte-3') && (
                 <div className="mt-5 flex flex-wrap items-center gap-3 text-base font-semibold text-white/95">
                   <a
                     href="https://es.linkedin.com/in/carolina-tomas-franco/en"

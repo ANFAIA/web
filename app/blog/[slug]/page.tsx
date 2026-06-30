@@ -11,6 +11,22 @@ const loadMarkdownContent = (id: string) => ({
 // Blog posts data - should match the data in blog/page.tsx
 const blogPosts = [
   {
+    slug: 'un-escarpado-maravilloso-viaje-verano-parte-3',
+    title: {
+      es: 'Un escarpado y maravilloso viaje de verano. Parte 3',
+      en: 'A Steep and Wonderful Summer Journey. Part 3',
+      gl: 'Unha escarpada e marabillosa viaxe de verán. Parte 3'
+    },
+    summary: {
+      es: 'Carolina Tomas recupera el rumbo de su proyecto: desbloquea CrewAI, conecta modelos más capaces y convierte el trabajo en un MVP funcional con una interfaz sencilla.',
+      en: 'Carolina Tomas finds her way again: she unblocks CrewAI, connects more capable models, and turns the work into a functional MVP with a simple interface.',
+      gl: 'Carolina Tomas recupera o rumbo do seu proxecto: desbloquea CrewAI, conecta modelos máis capaces e converte o traballo nun MVP funcional cunha interface sinxela.'
+    },
+    content: loadMarkdownContent('4'),
+    image: '/blog/images/summer-journey-part-3.png',
+    date: '2026-06-30'
+  },
+  {
     slug: 'un-escarpado-maravilloso-viaje-verano-parte-2',
     title: {
       es: 'Un escarpado y maravilloso viaje de verano. Parte 2',

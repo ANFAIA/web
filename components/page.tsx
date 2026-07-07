@@ -400,6 +400,37 @@ export function Page() {
               <div className="space-y-10">
                 <div>
                   <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-100 mb-5">
+                    Proyectos
+                  </h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
+                    {[
+                      { name: 'Agentic Smart Health', href: 'https://github.com/ANFAIA/Agentic-Smart-Health' },
+                      { name: 'ClimaSafe', href: 'https://github.com/ANFAIA/ClimaSafe' },
+                      { name: 'MalariaSentinel', href: 'https://github.com/ANFAIA/MalariaSentinel' },
+                      { name: 'SkillNet', href: 'https://github.com/ANFAIA/SkillNet' }
+                    ].map((project) => project.href ? (
+                      <a
+                        key={project.name}
+                        href={project.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-white/10 border border-white/20 rounded-lg px-5 py-4 text-base md:text-lg font-semibold text-white shadow-xl shadow-blue-950/20 backdrop-blur-sm transition-transform duration-200 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-900"
+                      >
+                        {project.name}
+                      </a>
+                    ) : (
+                      <div
+                        key={project.name}
+                        className="bg-white/10 border border-white/20 rounded-lg px-5 py-4 text-base md:text-lg font-semibold text-white shadow-xl shadow-blue-950/20 backdrop-blur-sm"
+                      >
+                        {project.name}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-100 mb-5">
                     Patrocinador
                   </h3>
                   <div className="flex justify-center">

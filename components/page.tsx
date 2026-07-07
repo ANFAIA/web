@@ -489,6 +489,93 @@ export function Page() {
           </div>
         </section>
 
+        {/* YouTube, Discord & Newsletter Section */}
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+              {/* YouTube Card */}
+              <Card className="bg-gradient-to-br from-red-500 to-red-600 text-white border-0 shadow-xl hover:shadow-2xl transition-shadow">
+                <CardContent className="text-center py-12 px-8">
+                  <Youtube className="w-16 h-16 mx-auto mb-6 opacity-90" />
+                  <h3 className="text-3xl font-bold mb-4">{t.youtube.title}</h3>
+                  <p className="text-xl text-red-50 mb-8 leading-relaxed">{t.youtube.description}</p>
+                  <Button
+                    size="lg"
+                    onClick={() => window.open('https://www.youtube.com/@Anfaia', '_blank')}
+                    className="bg-white text-red-600 hover:bg-red-50 px-8 py-6 text-lg shadow-lg font-semibold"
+                  >
+                    <Youtube className="mr-2 h-5 w-5" />
+                    {t.youtube.button}
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* Discord Card */}
+              <Card className="bg-gradient-to-br from-indigo-500 to-indigo-700 text-white border-0 shadow-xl hover:shadow-2xl transition-shadow">
+                <CardContent className="text-center py-12 px-8">
+                  <svg className="w-16 h-16 mx-auto mb-6 opacity-90" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M20.317 4.369A19.791 19.791 0 0 0 16.558 3c-.18.32-.39.755-.534 1.097a18.27 18.27 0 0 0-5.487 0A12.683 12.683 0 0 0 9.997 3 19.736 19.736 0 0 0 6.235 4.37C2.91 9.046 2 13.6 2.42 18.084a19.94 19.94 0 0 0 6.073 3.058c.49-.668.927-1.378 1.302-2.125a12.94 12.94 0 0 1-2.05-.978c.172-.127.34-.26.502-.397 3.957 1.826 8.232 1.826 12.144 0 .164.137.332.27.503.397-.654.392-1.343.722-2.053.978.375.747.811 1.456 1.302 2.125a19.927 19.927 0 0 0 6.073-3.058c.5-5.197-.838-9.712-3.499-13.715ZM9.34 15.331c-1.182 0-2.155-1.085-2.155-2.419 0-1.333.949-2.419 2.155-2.419 1.205 0 2.178 1.086 2.155 2.42 0 1.333-.95 2.418-2.155 2.418Zm5.32 0c-1.182 0-2.155-1.085-2.155-2.419 0-1.333.95-2.419 2.155-2.419 1.206 0 2.178 1.086 2.156 2.42 0 1.333-.95 2.418-2.156 2.418Z"/>
+                  </svg>
+                  <h3 className="text-3xl font-bold mb-4">{t.discord.title}</h3>
+                  <p className="text-xl text-indigo-50 mb-8 leading-relaxed">{t.discord.description}</p>
+                  <Button
+                    size="lg"
+                    onClick={() => window.open('https://discord.gg/wGCsq88vwZ', '_blank')}
+                    className="bg-white text-indigo-700 hover:bg-indigo-50 px-8 py-6 text-lg shadow-lg font-semibold"
+                  >
+                    {t.discord.button}
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* Newsletter Card */}
+              <Card className="bg-gradient-to-br from-green-500 to-green-600 text-white border-0 shadow-xl hover:shadow-2xl transition-shadow">
+                <CardContent className="text-center py-12 px-8">
+                  <div className="w-16 h-16 mx-auto mb-6 bg-white/20 rounded-full flex items-center justify-center">
+                    <svg className="w-10 h-10" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                      <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-3xl font-bold mb-4">{t.newsletter.title}</h3>
+                  <p className="text-xl text-green-50 mb-8 leading-relaxed">{t.newsletter.description}</p>
+                  <Button
+                    size="lg"
+                    onClick={() => window.open('https://forms.gle/5BxnQgzP6EwbzY2t9', '_blank')}
+                    className="bg-white text-green-600 hover:bg-green-50 px-8 py-6 text-lg shadow-lg font-semibold"
+                  >
+                    {t.newsletter.button}
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* Read Newsletter Section */}
+        <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+          <div className="container mx-auto px-4">
+            <Card className="bg-gradient-to-br from-amber-500 to-orange-600 text-white border-0 shadow-xl max-w-5xl mx-auto">
+              <CardContent className="text-center py-14 px-8">
+                <div className="w-16 h-16 mx-auto mb-6 bg-white/20 rounded-full flex items-center justify-center">
+                  <svg className="w-10 h-10" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+                  </svg>
+                </div>
+                <h3 className="text-3xl font-bold mb-4">{t.readNewsletter.title}</h3>
+                <p className="text-xl text-orange-50 mb-8 leading-relaxed max-w-2xl mx-auto">{t.readNewsletter.description}</p>
+                <Button
+                  size="lg"
+                  onClick={() => window.open('https://anfaia.github.io/newsletter/index.html', '_blank')}
+                  className="bg-white text-orange-600 hover:bg-orange-50 px-8 py-6 text-lg shadow-lg font-semibold"
+                >
+                  {t.readNewsletter.button}
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
         {/* Areas Section */}
         <section id="areas" className="py-20 bg-white">
           <div className="container mx-auto px-4">
@@ -612,93 +699,6 @@ export function Page() {
                 </CardContent>
               </Card>
             </div>
-          </div>
-        </section>
-
-        {/* YouTube, Discord & Newsletter Section */}
-        <section className="py-20 bg-white">
-          <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-              {/* YouTube Card */}
-              <Card className="bg-gradient-to-br from-red-500 to-red-600 text-white border-0 shadow-xl hover:shadow-2xl transition-shadow">
-                <CardContent className="text-center py-12 px-8">
-                  <Youtube className="w-16 h-16 mx-auto mb-6 opacity-90" />
-                  <h3 className="text-3xl font-bold mb-4">{t.youtube.title}</h3>
-                  <p className="text-xl text-red-50 mb-8 leading-relaxed">{t.youtube.description}</p>
-                  <Button
-                    size="lg"
-                    onClick={() => window.open('https://www.youtube.com/@Anfaia', '_blank')}
-                    className="bg-white text-red-600 hover:bg-red-50 px-8 py-6 text-lg shadow-lg font-semibold"
-                  >
-                    <Youtube className="mr-2 h-5 w-5" />
-                    {t.youtube.button}
-                  </Button>
-                </CardContent>
-              </Card>
-
-              {/* Discord Card */}
-              <Card className="bg-gradient-to-br from-indigo-500 to-indigo-700 text-white border-0 shadow-xl hover:shadow-2xl transition-shadow">
-                <CardContent className="text-center py-12 px-8">
-                  <svg className="w-16 h-16 mx-auto mb-6 opacity-90" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M20.317 4.369A19.791 19.791 0 0 0 16.558 3c-.18.32-.39.755-.534 1.097a18.27 18.27 0 0 0-5.487 0A12.683 12.683 0 0 0 9.997 3 19.736 19.736 0 0 0 6.235 4.37C2.91 9.046 2 13.6 2.42 18.084a19.94 19.94 0 0 0 6.073 3.058c.49-.668.927-1.378 1.302-2.125a12.94 12.94 0 0 1-2.05-.978c.172-.127.34-.26.502-.397 3.957 1.826 8.232 1.826 12.144 0 .164.137.332.27.503.397-.654.392-1.343.722-2.053.978.375.747.811 1.456 1.302 2.125a19.927 19.927 0 0 0 6.073-3.058c.5-5.197-.838-9.712-3.499-13.715ZM9.34 15.331c-1.182 0-2.155-1.085-2.155-2.419 0-1.333.949-2.419 2.155-2.419 1.205 0 2.178 1.086 2.155 2.42 0 1.333-.95 2.418-2.155 2.418Zm5.32 0c-1.182 0-2.155-1.085-2.155-2.419 0-1.333.95-2.419 2.155-2.419 1.206 0 2.178 1.086 2.156 2.42 0 1.333-.95 2.418-2.156 2.418Z"/>
-                  </svg>
-                  <h3 className="text-3xl font-bold mb-4">{t.discord.title}</h3>
-                  <p className="text-xl text-indigo-50 mb-8 leading-relaxed">{t.discord.description}</p>
-                  <Button
-                    size="lg"
-                    onClick={() => window.open('https://discord.gg/wGCsq88vwZ', '_blank')}
-                    className="bg-white text-indigo-700 hover:bg-indigo-50 px-8 py-6 text-lg shadow-lg font-semibold"
-                  >
-                    {t.discord.button}
-                  </Button>
-                </CardContent>
-              </Card>
-
-              {/* Newsletter Card */}
-              <Card className="bg-gradient-to-br from-green-500 to-green-600 text-white border-0 shadow-xl hover:shadow-2xl transition-shadow">
-                <CardContent className="text-center py-12 px-8">
-                  <div className="w-16 h-16 mx-auto mb-6 bg-white/20 rounded-full flex items-center justify-center">
-                    <svg className="w-10 h-10" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                      <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-3xl font-bold mb-4">{t.newsletter.title}</h3>
-                  <p className="text-xl text-green-50 mb-8 leading-relaxed">{t.newsletter.description}</p>
-                  <Button
-                    size="lg"
-                    onClick={() => window.open('https://forms.gle/5BxnQgzP6EwbzY2t9', '_blank')}
-                    className="bg-white text-green-600 hover:bg-green-50 px-8 py-6 text-lg shadow-lg font-semibold"
-                  >
-                    {t.newsletter.button}
-                  </Button>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* Read Newsletter Section */}
-        <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
-          <div className="container mx-auto px-4">
-            <Card className="bg-gradient-to-br from-amber-500 to-orange-600 text-white border-0 shadow-xl max-w-5xl mx-auto">
-              <CardContent className="text-center py-14 px-8">
-                <div className="w-16 h-16 mx-auto mb-6 bg-white/20 rounded-full flex items-center justify-center">
-                  <svg className="w-10 h-10" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
-                  </svg>
-                </div>
-                <h3 className="text-3xl font-bold mb-4">{t.readNewsletter.title}</h3>
-                <p className="text-xl text-orange-50 mb-8 leading-relaxed max-w-2xl mx-auto">{t.readNewsletter.description}</p>
-                <Button
-                  size="lg"
-                  onClick={() => window.open('https://anfaia.github.io/newsletter/index.html', '_blank')}
-                  className="bg-white text-orange-600 hover:bg-orange-50 px-8 py-6 text-lg shadow-lg font-semibold"
-                >
-                  {t.readNewsletter.button}
-                </Button>
-              </CardContent>
-            </Card>
           </div>
         </section>
 

@@ -58,7 +58,7 @@ const mentorDetails: Record<string, { name?: string; expertise?: string; linkedi
     expertise: 'Coordinador de investigación en inteligencia artificial en CESGA',
     linkedin: 'https://www.linkedin.com/in/david-garc%C3%ADa-selfa-phd-772869246/'
   },
-  'davidIbañez.jpeg': {
+  'davidIbanez.jpeg': {
     name: 'David Ibáñez',
     expertise: 'Full Stack Developer',
     linkedin: 'https://www.linkedin.com/in/davidibanezcerdeira/'

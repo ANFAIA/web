@@ -397,21 +397,62 @@ export function Page() {
                 </span>
               </h2>
 
-              {/* Date prominently displayed */}
-              <div className="mb-10">
-                <p className="text-lg md:text-xl text-blue-100 mb-3 font-semibold">
-                  {t.announcement.dateLabel}
-                </p>
-                {t.announcement.dateRange && (
-                  <p className="text-3xl md:text-4xl font-bold text-white">
-                    {t.announcement.dateRange}
-                  </p>
-                )}
-              </div>
+              <div className="space-y-10">
+                <div>
+                  <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-100 mb-5">
+                    Patrocinador
+                  </h3>
+                  <div className="flex justify-center">
+                    <a
+                      href="https://www.cesga.es/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-white border border-white/30 rounded-lg px-8 py-6 shadow-2xl shadow-blue-950/30 transition-transform duration-200 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-900"
+                      aria-label="Visitar CESGA"
+                    >
+                      <img
+                        src="/logos/CESGA.png"
+                        alt="Logo de CESGA, Centro de Supercomputación de Galicia"
+                        className="h-16 md:h-20 w-auto object-contain"
+                      />
+                    </a>
+                  </div>
+                </div>
 
-              <p className="text-lg md:text-xl text-blue-50 mb-10 leading-relaxed max-w-3xl mx-auto">
-                {t.announcement.description}
-              </p>
+                <div>
+                  <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-100 mb-5">
+                    Partners
+                  </h3>
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-5 md:gap-6">
+                    <a
+                      href="https://histora.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-white border border-white/30 rounded-lg px-8 py-6 shadow-2xl shadow-blue-950/30 transition-transform duration-200 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-900"
+                      aria-label="Visitar Histora"
+                    >
+                      <img
+                        src="/logos/Histora.png"
+                        alt="Logo de Histora, plataforma de inteligencia artificial para gestión de datos dentales"
+                        className="h-14 md:h-16 w-auto object-contain"
+                      />
+                    </a>
+                    <a
+                      href="https://gestiontickets.online/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-white border border-white/30 rounded-lg px-8 py-6 shadow-2xl shadow-blue-950/30 transition-transform duration-200 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-900"
+                      aria-label="Visitar Gestiontickets"
+                    >
+                      <img
+                        src="/logos/Gestiontickets.png"
+                        alt="Logo de Gestiontickets, plataforma de ticketing y gestión de eventos"
+                        className="h-14 md:h-16 w-auto object-contain"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
 
             </motion.div>
           </div>

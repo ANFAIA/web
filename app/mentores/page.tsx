@@ -12,7 +12,7 @@ const mentorFiles = [
   'anxoLopez.png',
   'carolinaTomas.jpeg',
   'davidGarciaSelfa.png',
-  'davidIbañez.jpeg',
+  'davidIbanez.jpeg',
   'eliasPerez.jpeg',
   'emilioAbad.jpeg',
   'hugoSuarez.jpeg',

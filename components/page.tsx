@@ -693,8 +693,12 @@ export function Page() {
               <Card className="bg-white border-0 shadow-xl hover:shadow-2xl transition-shadow overflow-hidden group">
                 <div className="relative h-64 overflow-hidden">
                   <img
-                    src="/blog/images/blog1.jpg"
-                    alt="Blog post"
+                    src="/blog/images/summer-journey-part-3.png"
+                    alt={language === 'es'
+                      ? 'Un escarpado y maravilloso viaje de verano. Parte 3'
+                      : language === 'gl'
+                      ? 'Unha escarpada e marabillosa viaxe de verán. Parte 3'
+                      : 'A Steep and Wonderful Summer Journey. Part 3'}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     onError={(e) => {
                       e.currentTarget.src = 'culture.webp'
@@ -708,21 +712,21 @@ export function Page() {
                 <CardContent className="p-8">
                   <h3 className="text-2xl font-bold mb-4 line-clamp-3 group-hover:text-blue-600 transition-colors">
                     {language === 'es'
-                      ? 'Clausura de las Becas de Verano ANFAIA 2025: jóvenes investigadores impulsan proyectos de IA con impacto social'
+                      ? 'Un escarpado y maravilloso viaje de verano. Parte 3'
                       : language === 'gl'
-                      ? 'Clausura das Bolsas de Verán ANFAIA 2025: mozos investigadores impulsan proxectos de IA con impacto social'
-                      : 'Closing Ceremony of ANFAIA Summer Scholarships 2025: Young Researchers Drive AI Projects with Social Impact'}
+                      ? 'Unha escarpada e marabillosa viaxe de verán. Parte 3'
+                      : 'A Steep and Wonderful Summer Journey. Part 3'}
                   </h3>
                   <p className="text-gray-600 mb-6 line-clamp-3 leading-relaxed">
                     {language === 'es'
-                      ? 'El pasado jueves 25 de septiembre, la Asociación ANFAIA celebró el acto de clausura de las Becas de Verano ANFAIA 2025 sobre Inteligencia Artificial...'
+                      ? 'Carolina Tomas recupera el rumbo de su proyecto: desbloquea CrewAI, conecta modelos más capaces y convierte el trabajo en un MVP funcional con una interfaz sencilla.'
                       : language === 'gl'
-                      ? 'O pasado xoves 25 de setembro, a Asociación ANFAIA celebrou o acto de clausura das Bolsas de Verán ANFAIA 2025 sobre Intelixencia Artificial...'
-                      : 'Last Thursday, September 25th, the ANFAIA Association held the closing ceremony of the ANFAIA Summer Scholarships 2025 on Artificial Intelligence...'}
+                      ? 'Carolina Tomas recupera o rumbo do seu proxecto: desbloquea CrewAI, conecta modelos máis capaces e converte o traballo nun MVP funcional cunha interface sinxela.'
+                      : 'Carolina Tomas finds her way again: she unblocks CrewAI, connects more capable models, and turns the work into a functional MVP with a simple interface.'}
                   </p>
                   <Button
                     size="lg"
-                    onClick={() => window.open('/blog/clausura-becas-verano-2025', '_blank')}
+                    onClick={() => window.open('/blog/un-escarpado-maravilloso-viaje-verano-parte-3', '_blank')}
                     className="w-full bg-blue-600 hover:bg-blue-700"
                   >
                     {t.blog.readMore} →

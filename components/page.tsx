@@ -148,6 +148,14 @@ export function Page() {
                     {t.nav.blog}
                   </a>
                 </li>
+                <li>
+                  <a
+                    href="/mentores"
+                    className="text-sm font-medium transition-colors duration-200 text-gray-600 hover:text-blue-600"
+                  >
+                    {t.nav.mentores}
+                  </a>
+                </li>
 
                 {/* Becas Dropdown */}
                 <li className="relative">
@@ -247,6 +255,15 @@ export function Page() {
                       className="block text-base font-medium transition-colors duration-200 text-gray-600 hover:text-blue-600"
                     >
                       {t.nav.blog}
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/mentores"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="block text-base font-medium transition-colors duration-200 text-gray-600 hover:text-blue-600"
+                    >
+                      {t.nav.mentores}
                     </a>
                   </li>
 
@@ -426,6 +443,20 @@ export function Page() {
                         {project.name}
                       </div>
                     ))}
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-100 mb-5">
+                    Mentores
+                  </h3>
+                  <div className="flex justify-center">
+                    <a
+                      href="/mentores"
+                      className="bg-white/10 border border-white/20 rounded-lg px-8 py-4 text-base md:text-lg font-semibold text-white shadow-xl shadow-blue-950/20 backdrop-blur-sm transition-transform duration-200 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-900"
+                    >
+                      Ver mentores
+                    </a>
                   </div>
                 </div>
 
@@ -756,7 +787,8 @@ export function Page() {
                   { key: 'inicio', label: t.nav.inicio },
                   { key: 'programa', label: t.nav.programa },
                   { key: 'ética', label: t.nav.etica },
-                  { key: 'blog', label: t.nav.blog, href: '/blog' }
+                  { key: 'blog', label: t.nav.blog, href: '/blog' },
+                  { key: 'mentores', label: t.nav.mentores, href: '/mentores' }
                 ].map((item) => (
                   <li key={item.key}>
                     <a href={'href' in item ? item.href : `#${item.key}`} className="text-gray-400 hover:text-white transition-colors duration-200">{item.label}</a>

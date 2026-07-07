@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useTranslations } from '@/lib/translations'
 import { Button } from "@/components/ui/button"
 import { LanguageSwitcher } from '@/components/ui/language-switcher'
@@ -31,8 +31,17 @@ type BlogPost = {
 export default function BlogPostClient({ slug, blogPosts }: { slug: string, blogPosts: BlogPost[] }) {
   const { t, language } = useTranslations()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
 
   const post = blogPosts.find(p => p.slug === slug)
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 0)
+
+    handleScroll()
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   if (!post) {
     return (
@@ -50,9 +59,9 @@ export default function BlogPostClient({ slug, blogPosts }: { slug: string, blog
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900">
       <header className="bg-white shadow-md sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-6 flex justify-between items-center">
+        <div className={`container mx-auto px-4 flex justify-between items-center transition-all duration-300 ${isScrolled ? 'py-3' : 'py-6'}`}>
           <Link href="/">
-            <img src="/ANFAIA_logo_web.png" alt="ANFAIA Logo" className="w-40 h-auto cursor-pointer" />
+            <img src="/ANFAIA_logo_web.png" alt="ANFAIA Logo" className={`transition-all duration-300 ${isScrolled ? 'w-32' : 'w-40'} h-auto cursor-pointer`} />
           </Link>
 
           {/* Desktop Navigation */}
@@ -77,6 +86,11 @@ export default function BlogPostClient({ slug, blogPosts }: { slug: string, blog
                 <li>
                   <Link href="/blog" className="text-sm font-medium text-blue-600 transition-colors duration-200">
                     {t.nav.blog}
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/mentores" className="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors duration-200">
+                    {t.nav.mentores}
                   </Link>
                 </li>
               </ul>
@@ -135,6 +149,15 @@ export default function BlogPostClient({ slug, blogPosts }: { slug: string, blog
                     className="block text-base font-medium text-blue-600 transition-colors duration-200"
                   >
                     {t.nav.blog}
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/mentores"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block text-base font-medium text-gray-600 hover:text-blue-600 transition-colors duration-200"
+                  >
+                    {t.nav.mentores}
                   </Link>
                 </li>
               </ul>
@@ -360,6 +383,9 @@ export default function BlogPostClient({ slug, blogPosts }: { slug: string, blog
                 </li>
                 <li>
                   <Link href="/blog" className="text-gray-400 hover:text-white transition-colors duration-200">{t.nav.blog}</Link>
+                </li>
+                <li>
+                  <Link href="/mentores" className="text-gray-400 hover:text-white transition-colors duration-200">{t.nav.mentores}</Link>
                 </li>
               </ul>
             </div>

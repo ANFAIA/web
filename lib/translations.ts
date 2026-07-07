@@ -11,6 +11,7 @@ export interface Translations {
     becas: string;
     convocatoria2025: string;
     basesGenerales: string;
+    mentores: string;
     blog: string;
   };
   
@@ -129,6 +130,7 @@ export const translations: Record<Language, Translations> = {
       becas: 'Becas',
       convocatoria2025: 'Convocatoria 2026',
       basesGenerales: 'Bases Generales',
+      mentores: 'Mentores',
       blog: 'Blog'
     },
     hero: {
@@ -230,6 +232,7 @@ export const translations: Record<Language, Translations> = {
       becas: 'Scholarships',
       convocatoria2025: '2026 Call',
       basesGenerales: 'General Guidelines',
+      mentores: 'Mentors',
       blog: 'Blog'
     },
     hero: {
@@ -331,6 +334,7 @@ export const translations: Record<Language, Translations> = {
       becas: 'Bolsas',
       convocatoria2025: 'Convocatoria 2026',
       basesGenerales: 'Bases Xerais',
+      mentores: 'Mentores',
       blog: 'Blog'
     },
     hero: {

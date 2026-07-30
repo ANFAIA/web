@@ -525,8 +525,8 @@ export function Page() {
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
               {/* YouTube Card */}
-              <Card className="bg-gradient-to-br from-red-500 to-red-600 text-white border-0 shadow-xl hover:shadow-2xl transition-shadow">
-                <CardContent className="text-center py-12 px-8">
+              <Card className="h-full bg-gradient-to-br from-red-500 to-red-600 text-white border-0 shadow-xl hover:shadow-2xl transition-shadow">
+                <CardContent className="flex h-full flex-col items-center text-center py-12 px-8">
                   <img
                     src="/logos/youtube-icon-white.svg"
                     alt=""
@@ -538,7 +538,7 @@ export function Page() {
                   <Button
                     size="lg"
                     onClick={() => window.open('https://www.youtube.com/@Anfaia', '_blank')}
-                    className="bg-white text-red-600 hover:bg-red-50 px-8 py-6 text-lg shadow-lg font-semibold"
+                    className="mt-auto bg-white text-red-600 hover:bg-red-50 px-8 py-6 text-lg shadow-lg font-semibold"
                   >
                     <img
                       src="/logos/youtube-icon.svg"
@@ -552,8 +552,8 @@ export function Page() {
               </Card>
 
               {/* Discord Card */}
-              <Card className="bg-gradient-to-br from-indigo-500 to-indigo-700 text-white border-0 shadow-xl hover:shadow-2xl transition-shadow">
-                <CardContent className="text-center py-12 px-8">
+              <Card className="h-full bg-gradient-to-br from-indigo-500 to-indigo-700 text-white border-0 shadow-xl hover:shadow-2xl transition-shadow">
+                <CardContent className="flex h-full flex-col items-center text-center py-12 px-8">
                   <img
                     src="/logos/discord-symbol.svg"
                     alt=""
@@ -565,7 +565,7 @@ export function Page() {
                   <Button
                     size="lg"
                     onClick={() => window.open('https://discord.gg/wGCsq88vwZ', '_blank')}
-                    className="bg-white text-indigo-700 hover:bg-indigo-50 px-8 py-6 text-lg shadow-lg font-semibold"
+                    className="mt-auto bg-white text-indigo-700 hover:bg-indigo-50 px-8 py-6 text-lg shadow-lg font-semibold"
                   >
                     {t.discord.button}
                   </Button>
@@ -573,8 +573,8 @@ export function Page() {
               </Card>
 
               {/* Newsletter Card */}
-              <Card className="bg-gradient-to-br from-green-500 to-green-600 text-white border-0 shadow-xl hover:shadow-2xl transition-shadow">
-                <CardContent className="text-center py-12 px-8">
+              <Card className="h-full bg-gradient-to-br from-green-500 to-green-600 text-white border-0 shadow-xl hover:shadow-2xl transition-shadow">
+                <CardContent className="flex h-full flex-col items-center text-center py-12 px-8">
                   <div className="w-16 h-16 mx-auto mb-6 bg-white/20 rounded-full flex items-center justify-center">
                     <svg className="w-10 h-10" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
@@ -586,7 +586,7 @@ export function Page() {
                   <Button
                     size="lg"
                     onClick={() => window.open('https://forms.gle/5BxnQgzP6EwbzY2t9', '_blank')}
-                    className="bg-white text-green-600 hover:bg-green-50 px-8 py-6 text-lg shadow-lg font-semibold"
+                    className="mt-auto bg-white text-green-600 hover:bg-green-50 px-8 py-6 text-lg shadow-lg font-semibold"
                   >
                     {t.newsletter.button}
                   </Button>

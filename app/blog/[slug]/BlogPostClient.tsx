@@ -93,6 +93,11 @@ export default function BlogPostClient({ slug, blogPosts }: { slug: string, blog
                     {t.nav.mentores}
                   </Link>
                 </li>
+                <li>
+                  <a href="https://evolvingagentslabs.github.io/" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors duration-200">
+                    {t.nav.researchLab}
+                  </a>
+                </li>
               </ul>
             </nav>
             <LanguageSwitcher />
@@ -159,6 +164,17 @@ export default function BlogPostClient({ slug, blogPosts }: { slug: string, blog
                   >
                     {t.nav.mentores}
                   </Link>
+                </li>
+                <li>
+                  <a
+                    href="https://evolvingagentslabs.github.io/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block text-base font-medium text-gray-600 hover:text-blue-600 transition-colors duration-200"
+                  >
+                    {t.nav.researchLab}
+                  </a>
                 </li>
               </ul>
             </nav>
@@ -386,6 +402,9 @@ export default function BlogPostClient({ slug, blogPosts }: { slug: string, blog
                 </li>
                 <li>
                   <Link href="/mentores" className="text-gray-400 hover:text-white transition-colors duration-200">{t.nav.mentores}</Link>
+                </li>
+                <li>
+                  <a href="https://evolvingagentslabs.github.io/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-200">{t.nav.researchLab}</a>
                 </li>
               </ul>
             </div>

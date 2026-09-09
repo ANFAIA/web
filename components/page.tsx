@@ -156,6 +156,16 @@ export function Page() {
                     {t.nav.mentores}
                   </a>
                 </li>
+                <li>
+                  <a
+                    href="https://evolvingagentslabs.github.io/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-medium transition-colors duration-200 text-gray-600 hover:text-blue-600"
+                  >
+                    {t.nav.researchLab}
+                  </a>
+                </li>
 
                 {/* Becas Dropdown */}
                 <li className="relative">
@@ -264,6 +274,17 @@ export function Page() {
                       className="block text-base font-medium transition-colors duration-200 text-gray-600 hover:text-blue-600"
                     >
                       {t.nav.mentores}
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://evolvingagentslabs.github.io/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="block text-base font-medium transition-colors duration-200 text-gray-600 hover:text-blue-600"
+                    >
+                      {t.nav.researchLab}
                     </a>
                   </li>
 
@@ -417,7 +438,7 @@ export function Page() {
               <div className="space-y-10">
                 <div>
                   <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-100 mb-5">
-                    Proyectos
+                    {t.announcement.projectsLabel}
                   </h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
                     {[
@@ -448,21 +469,21 @@ export function Page() {
 
                 <div>
                   <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-100 mb-5">
-                    Mentores
+                    {t.announcement.mentorsLabel}
                   </h3>
                   <div className="flex justify-center">
                     <a
                       href="/mentores"
                       className="bg-white/10 border border-white/20 rounded-lg px-8 py-4 text-base md:text-lg font-semibold text-white shadow-xl shadow-blue-950/20 backdrop-blur-sm transition-transform duration-200 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-900"
                     >
-                      Ver mentores
+                      {t.announcement.viewMentors}
                     </a>
                   </div>
                 </div>
 
                 <div>
                   <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-100 mb-5">
-                    Patrocinador
+                    {t.announcement.sponsorLabel}
                   </h3>
                   <div className="flex justify-center">
                     <a
@@ -483,7 +504,7 @@ export function Page() {
 
                 <div>
                   <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-100 mb-5">
-                    Partners
+                    {t.announcement.partnersLabel}
                   </h3>
                   <div className="flex flex-col sm:flex-row items-center justify-center gap-5 md:gap-6">
                     <a
@@ -815,10 +836,16 @@ export function Page() {
                   { key: 'programa', label: t.nav.programa },
                   { key: 'ética', label: t.nav.etica },
                   { key: 'blog', label: t.nav.blog, href: '/blog' },
-                  { key: 'mentores', label: t.nav.mentores, href: '/mentores' }
+                  { key: 'mentores', label: t.nav.mentores, href: '/mentores' },
+                  { key: 'researchLab', label: t.nav.researchLab, href: 'https://evolvingagentslabs.github.io/', external: true }
                 ].map((item) => (
                   <li key={item.key}>
-                    <a href={'href' in item ? item.href : `#${item.key}`} className="text-gray-400 hover:text-white transition-colors duration-200">{item.label}</a>
+                    <a
+                      href={'href' in item ? item.href : `#${item.key}`}
+                      target={'external' in item ? '_blank' : undefined}
+                      rel={'external' in item ? 'noopener noreferrer' : undefined}
+                      className="text-gray-400 hover:text-white transition-colors duration-200"
+                    >{item.label}</a>
                   </li>
                 ))}
                

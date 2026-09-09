@@ -143,7 +143,8 @@ export default function MentoresPage() {
     { href: '/#programa', label: t.nav.programa },
     { href: '/#ética', label: t.nav.etica },
     { href: '/blog', label: t.nav.blog },
-    { href: '/mentores', label: t.nav.mentores, active: true }
+    { href: '/mentores', label: t.nav.mentores, active: true },
+    { href: 'https://evolvingagentslabs.github.io/', label: t.nav.researchLab, external: true }
   ]
 
   return (
@@ -159,14 +160,25 @@ export default function MentoresPage() {
               <ul className="flex space-x-6">
                 {navItems.map((item) => (
                   <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      className={`text-sm font-medium transition-colors duration-200 ${
-                        item.active ? 'text-blue-600' : 'text-gray-600 hover:text-blue-600'
-                      }`}
-                    >
-                      {item.label}
-                    </Link>
+                    {item.external ? (
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm font-medium transition-colors duration-200 text-gray-600 hover:text-blue-600"
+                      >
+                        {item.label}
+                      </a>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        className={`text-sm font-medium transition-colors duration-200 ${
+                          item.active ? 'text-blue-600' : 'text-gray-600 hover:text-blue-600'
+                        }`}
+                      >
+                        {item.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -191,15 +203,27 @@ export default function MentoresPage() {
               <ul className="space-y-4">
                 {navItems.map((item) => (
                   <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className={`block text-base font-medium transition-colors duration-200 ${
-                        item.active ? 'text-blue-600' : 'text-gray-600 hover:text-blue-600'
-                      }`}
-                    >
-                      {item.label}
-                    </Link>
+                    {item.external ? (
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="block text-base font-medium transition-colors duration-200 text-gray-600 hover:text-blue-600"
+                      >
+                        {item.label}
+                      </a>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className={`block text-base font-medium transition-colors duration-200 ${
+                          item.active ? 'text-blue-600' : 'text-gray-600 hover:text-blue-600'
+                        }`}
+                      >
+                        {item.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -287,9 +311,20 @@ export default function MentoresPage() {
               <ul className="space-y-2">
                 {navItems.map((item) => (
                   <li key={item.href}>
-                    <Link href={item.href} className="text-gray-400 hover:text-white transition-colors duration-200">
-                      {item.label}
-                    </Link>
+                    {item.external ? (
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-400 hover:text-white transition-colors duration-200"
+                      >
+                        {item.label}
+                      </a>
+                    ) : (
+                      <Link href={item.href} className="text-gray-400 hover:text-white transition-colors duration-200">
+                        {item.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>

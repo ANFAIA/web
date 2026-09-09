@@ -13,6 +13,7 @@ export interface Translations {
     basesGenerales: string;
     mentores: string;
     blog: string;
+    researchLab: string;
   };
   
   // Hero section
@@ -118,6 +119,11 @@ export interface Translations {
     dateLabel: string;
     dateRange: string;
     description: string;
+    projectsLabel: string;
+    mentorsLabel: string;
+    viewMentors: string;
+    sponsorLabel: string;
+    partnersLabel: string;
   };
 }
 
@@ -131,7 +137,8 @@ export const translations: Record<Language, Translations> = {
       convocatoria2025: 'Convocatoria 2026',
       basesGenerales: 'Bases Generales',
       mentores: 'Mentores',
-      blog: 'Blog'
+      blog: 'Blog',
+      researchLab: 'Research Lab'
     },
     hero: {
       title: 'Impulsando el Progreso con Inteligencia Artificial',
@@ -220,7 +227,12 @@ export const translations: Record<Language, Translations> = {
       subtitle: '',
       dateLabel: 'Plazo de inscripción cerrado',
       dateRange: '',
-      description: 'Durante el verano los participantes desarrollarán proyectos de inteligencia artificial en diferentes ámbitos, publicando los resultados como software de código abierto.'
+      description: 'Durante el verano los participantes desarrollarán proyectos de inteligencia artificial en diferentes ámbitos, publicando los resultados como software de código abierto.',
+      projectsLabel: 'Proyectos',
+      mentorsLabel: 'Mentores',
+      viewMentors: 'Ver mentores',
+      sponsorLabel: 'Patrocinador',
+      partnersLabel: 'Partners'
     }
   },
   
@@ -233,7 +245,8 @@ export const translations: Record<Language, Translations> = {
       convocatoria2025: '2026 Call',
       basesGenerales: 'General Guidelines',
       mentores: 'Mentors',
-      blog: 'Blog'
+      blog: 'Blog',
+      researchLab: 'Research Lab'
     },
     hero: {
       title: 'Driving Progress with Artificial Intelligence',
@@ -322,7 +335,12 @@ export const translations: Record<Language, Translations> = {
       subtitle: '',
       dateLabel: 'Registration period closed',
       dateRange: '',
-      description: 'During the summer, participants will develop artificial intelligence projects in different fields, publishing the results as open source software.'
+      description: 'During the summer, participants will develop artificial intelligence projects in different fields, publishing the results as open source software.',
+      projectsLabel: 'Projects',
+      mentorsLabel: 'Mentors',
+      viewMentors: 'View mentors',
+      sponsorLabel: 'Sponsor',
+      partnersLabel: 'Partners'
     }
   },
   
@@ -335,7 +353,8 @@ export const translations: Record<Language, Translations> = {
       convocatoria2025: 'Convocatoria 2026',
       basesGenerales: 'Bases Xerais',
       mentores: 'Mentores',
-      blog: 'Blog'
+      blog: 'Blog',
+      researchLab: 'Research Lab'
     },
     hero: {
       title: 'Impulsando o Progreso coa Intelixencia Artificial',
@@ -424,7 +443,12 @@ export const translations: Record<Language, Translations> = {
       subtitle: '',
       dateLabel: 'Prazo de inscrición pechado',
       dateRange: '',
-      description: 'Durante o verán os participantes desenvolverán proxectos de intelixencia artificial en diferentes ámbitos, publicando os resultados como software de código aberto.'
+      description: 'Durante o verán os participantes desenvolverán proxectos de intelixencia artificial en diferentes ámbitos, publicando os resultados como software de código aberto.',
+      projectsLabel: 'Proxectos',
+      mentorsLabel: 'Mentores',
+      viewMentors: 'Ver mentores',
+      sponsorLabel: 'Patrocinador',
+      partnersLabel: 'Partners'
     }
   }
 };

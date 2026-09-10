@@ -11,6 +11,21 @@ import Link from 'next/link'
 // Blog posts data - you can move this to a separate file or database later
 const blogPosts = [
   {
+    slug: 'evolving-agents-labs-se-une-a-anfaia',
+    title: {
+      es: 'Evolving Agents Labs se une a ANFAIA',
+      en: 'Evolving Agents Labs joins ANFAIA',
+      gl: 'Evolving Agents Labs únese a ANFAIA'
+    },
+    summary: {
+      es: 'Evolving Agents Labs se une a ANFAIA: sus proyectos de investigación en agentes adaptativos continúan en abierto dentro de la comunidad, con lora-kernel como próxima y más ambiciosa propuesta.',
+      en: 'Evolving Agents Labs joins ANFAIA: its research on adaptive agent systems continues in the open within the community, with lora-kernel as the next and most ambitious proposal.',
+      gl: 'Evolving Agents Labs únese a ANFAIA: os seus proxectos de investigación en axentes adaptativos continúan en aberto dentro da comunidade, con lora-kernel como próxima e máis ambiciosa proposta.'
+    },
+    image: '/blog/images/evolving-agents-labs-anfaia.webp',
+    date: '2026-09-09'
+  },
+  {
     slug: 'un-escarpado-maravilloso-viaje-verano-parte-3',
     title: {
       es: 'Un escarpado y maravilloso viaje de verano. Parte 3',

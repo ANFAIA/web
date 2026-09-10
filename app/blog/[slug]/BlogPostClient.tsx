@@ -235,6 +235,20 @@ export default function BlogPostClient({ slug, blogPosts }: { slug: string, blog
                   </a>
                 </div>
               )}
+              {post.slug === 'evolving-agents-labs-se-une-a-anfaia' && (
+                <div className="mt-5 flex flex-wrap items-center gap-3 text-base font-semibold text-white/95">
+                  <span>Ismael Faro</span>
+                  <span className="text-white/70">·</span>
+                  <a
+                    href="https://github.com/EvolvingAgentsLabs"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline decoration-white/60 underline-offset-4 hover:text-blue-100 hover:decoration-blue-100 transition-colors"
+                  >
+                    EvolvingAgentsLabs
+                  </a>
+                </div>
+              )}
             </div>
           </div>
         </div>

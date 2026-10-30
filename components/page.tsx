@@ -737,12 +737,12 @@ export function Page() {
               <Card className="bg-white border-0 shadow-xl hover:shadow-2xl transition-shadow overflow-hidden group">
                 <div className="relative h-64 overflow-hidden">
                   <img
-                    src="/blog/images/summer-journey-part-3.png"
+                    src="/blog/images/clausura-becas-verano-anfaia-2026.webp"
                     alt={language === 'es'
-                      ? 'Un escarpado y maravilloso viaje de verano. Parte 3'
+                      ? 'Talento joven e IA open source: la experiencia de las Becas ANFAIA 2026'
                       : language === 'gl'
-                      ? 'Unha escarpada e marabillosa viaxe de verán. Parte 3'
-                      : 'A Steep and Wonderful Summer Journey. Part 3'}
+                      ? 'Talento novo e IA open source: a experiencia das Bolsas ANFAIA 2026'
+                      : 'Young talent and open source AI: the ANFAIA Scholarships 2026 experience'}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     onError={(e) => {
                       e.currentTarget.src = 'culture.webp'
@@ -756,21 +756,21 @@ export function Page() {
                 <CardContent className="p-8">
                   <h3 className="text-2xl font-bold mb-4 line-clamp-3 group-hover:text-blue-600 transition-colors">
                     {language === 'es'
-                      ? 'Un escarpado y maravilloso viaje de verano. Parte 3'
+                      ? 'Talento joven e IA open source: la experiencia de las Becas ANFAIA 2026'
                       : language === 'gl'
-                      ? 'Unha escarpada e marabillosa viaxe de verán. Parte 3'
-                      : 'A Steep and Wonderful Summer Journey. Part 3'}
+                      ? 'Talento novo e IA open source: a experiencia das Bolsas ANFAIA 2026'
+                      : 'Young talent and open source AI: the ANFAIA Scholarships 2026 experience'}
                   </h3>
                   <p className="text-gray-600 mb-6 line-clamp-3 leading-relaxed">
                     {language === 'es'
-                      ? 'Carolina Tomas recupera el rumbo de su proyecto: desbloquea CrewAI, conecta modelos más capaces y convierte el trabajo en un MVP funcional con una interfaz sencilla.'
+                      ? "Los cuatro estudiantes seleccionados presentaron en Vigo los proyectos desarrollados durante dos meses junto a la Red de Mentores de ANFAIA. Una jornada abierta al público para compartir resultados, aprendizajes y nuevas formas de aplicar la inteligencia artificial a problemas reales."
                       : language === 'gl'
-                      ? 'Carolina Tomas recupera o rumbo do seu proxecto: desbloquea CrewAI, conecta modelos máis capaces e converte o traballo nun MVP funcional cunha interface sinxela.'
-                      : 'Carolina Tomas finds her way again: she unblocks CrewAI, connects more capable models, and turns the work into a functional MVP with a simple interface.'}
+                      ? "Os catro estudantes seleccionados presentaron en Vigo os proxectos desenvolvidos durante dous meses xunto á Rede de Mentores de ANFAIA. Unha xornada aberta ao público para compartir resultados, aprendizaxes e novas formas de aplicar a intelixencia artificial a problemas reais."
+                      : "The four selected students presented in Vigo the projects they developed over two months with the ANFAIA Mentor Network. An event open to the public to share results, lessons learned and new ways of applying artificial intelligence to real-world problems."}
                   </p>
                   <Button
                     size="lg"
-                    onClick={() => window.open('/blog/un-escarpado-maravilloso-viaje-verano-parte-3', '_blank')}
+                    onClick={() => window.open('/blog/clausura-becas-verano-anfaia-2026', '_blank')}
                     className="w-full bg-blue-600 hover:bg-blue-700"
                   >
                     {t.blog.readMore} →

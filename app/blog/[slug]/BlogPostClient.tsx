@@ -24,6 +24,7 @@ type BlogPost = {
     en: string
     gl: string
   }
+  imageCredit?: string
   image: string
   date: string
 }
@@ -204,7 +205,7 @@ export default function BlogPostClient({ slug, blogPosts }: { slug: string, blog
               <div className="flex items-center gap-3 mb-4">
                 <div className="h-1 w-16 bg-blue-500 rounded-full" />
                 <p className="text-sm font-semibold text-white/90 uppercase tracking-wider">
-                  {new Date(post.date).toLocaleDateString(language === 'es' ? 'es-ES' : language === 'gl' ? 'gl-ES' : 'en-US', {
+                  {new Date(`${post.date}T12:00:00`).toLocaleDateString(language === 'es' ? 'es-ES' : language === 'gl' ? 'gl-ES' : 'en-US', {
                     year: 'numeric',
                     month: 'long',
                     day: 'numeric'
@@ -255,6 +256,12 @@ export default function BlogPostClient({ slug, blogPosts }: { slug: string, blog
 
         {/* Article Content */}
         <article className="container mx-auto px-4 py-16 max-w-3xl">
+          {post.imageCredit && (
+            <figure className="mb-12">
+              <img src={post.image} alt={language === 'en' ? 'Participants and mentors at the ANFAIA Summer Scholarships 2026 closing event' : language === 'gl' ? 'Participantes e mentores na clausura das Bolsas de Verán ANFAIA 2026' : 'Participantes y mentores en la clausura de las Becas de Verano ANFAIA 2026'} className="w-full h-auto rounded-lg" />
+              <figcaption className="mt-3 text-sm text-gray-500">{language === 'en' ? 'Photography' : 'Fotografía'}: {post.imageCredit}</figcaption>
+            </figure>
+          )}
           <div className="prose prose-lg prose-blue max-w-none">
             {post.content[language].split('\n').map((paragraph, index) => {
               // Function to render text with bold formatting and links

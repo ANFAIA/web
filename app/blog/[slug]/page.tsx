@@ -11,6 +11,23 @@ const loadMarkdownContent = (id: string) => ({
 // Blog posts data - should match the data in blog/page.tsx
 const blogPosts = [
   {
+    "slug": "clausura-becas-verano-anfaia-2026",
+    "title": {
+        "es": "Talento joven e IA open source: la experiencia de las Becas ANFAIA 2026",
+        "en": "Young talent and open source AI: the ANFAIA Scholarships 2026 experience",
+        "gl": "Talento novo e IA open source: a experiencia das Bolsas ANFAIA 2026"
+    },
+    "summary": {
+        "es": "Los cuatro estudiantes seleccionados presentaron en Vigo los proyectos desarrollados durante dos meses junto a la Red de Mentores de ANFAIA. Una jornada abierta al público para compartir resultados, aprendizajes y nuevas formas de aplicar la inteligencia artificial a problemas reales.",
+        "en": "The four selected students presented in Vigo the projects they developed over two months with the ANFAIA Mentor Network. An event open to the public to share results, lessons learned and new ways of applying artificial intelligence to real-world problems.",
+        "gl": "Os catro estudantes seleccionados presentaron en Vigo os proxectos desenvolvidos durante dous meses xunto á Rede de Mentores de ANFAIA. Unha xornada aberta ao público para compartir resultados, aprendizaxes e novas formas de aplicar a intelixencia artificial a problemas reais."
+    },
+    "image": "/blog/images/clausura-becas-verano-anfaia-2026.webp",
+    "date": "2026-10-30",
+    content: loadMarkdownContent('6'),
+    imageCredit: "Marta G. Brea"
+  },
+  {
     slug: 'evolving-agents-labs-se-une-a-anfaia',
     title: {
       es: 'Evolving Agents Labs se une a ANFAIA',
